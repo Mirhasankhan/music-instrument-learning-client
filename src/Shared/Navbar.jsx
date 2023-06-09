@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
-import { AuthContext } from '../Providers/AuthProvider';
+import useAuth from '../Hooks/useAuth';
 
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext)
-    console.log(user);
+    const {user} = useAuth()   
     const [open, setOpen] = useState(false)
     return (
         <div>
