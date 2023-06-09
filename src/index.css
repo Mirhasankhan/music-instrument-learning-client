@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input-style{
+    @apply p-2 border-b-2 border-gray-400 focus:outline-green-500
+}
+.login-btn{
+    @apply w-full bg-gradient-to-r from-violet-500 to-fuchsia-500 font-medium text-white py-2 rounded-lg
+}

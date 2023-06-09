@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/background-login.jpg')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      }
+    }
   },
   plugins: [require("daisyui")],
 }
