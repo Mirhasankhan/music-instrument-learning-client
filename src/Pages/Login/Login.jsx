@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
+import SocialLogin from '../../Components/SocialLogin';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
-    const {signIn} = useAuth()
+    const { signIn } = useAuth()
+    const [show, setShow] = useState(false)
+
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         signIn(data.email, data.password)
-        .then(result =>{
-            toast.success('LoggedIn successfully',{
-                position: 'top-right',
-                style: {backgroundColor: 'blue', color: 'white'}
+            .then(() => {
+                toast.success('LoggedIn successfully', {
+                    position: 'top-right',
+                    style: { backgroundColor: 'blue', color: 'white' }
+                })
+
             })
-           
-        })
-        .catch((error)=>{
-            toast.error(error.message, {
-                position: 'top-right',
-                style: {backgroundColor: 'black', color: 'white'}
-            })           
-        })
-      reset()
+            .catch((error) => {
+                toast.error(error.message, {
+                    position: 'top-right',
+                    style: { backgroundColor: 'black', color: 'white' }
+                })
+            })
+        reset()
     };
     return (
         <div className='py-10 bg-gray-500'>
@@ -36,17 +40,21 @@ const Login = () => {
                         <input {...register("email", { required: true })} type="email" placeholder="Type Your Email" className="input-style" />
                         {errors.email && <span className="text-red-600">Email is required</span>}
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text font-medium text-gray-500">Password</span>
                         </label>
-                        <input {...register("password", { required: true })} type="password" placeholder="Type Your Password" className="input-style" />
+                        <input {...register("password", { required: true })} type={show ? "password" : "text"} placeholder="Type Your Password" className="input-style" />
                         {errors.password && <span className="text-red-600">Password is required</span>}
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex items-center'>
-                            <input type="checkbox" name="" id="" />
-                            <p className='ml-2'>Remember Me</p>
+                            <span>
+                                {
+                                    show ? <div onClick={()=>setShow(!show)} className='flex items-center'><FaEye className=' mr-1 text-xl'></FaEye> <small>Show password</small></div> : 
+                                    <div onClick={()=>setShow(!show)} className='flex items-center'><FaEyeSlash className='mr-1 text-xl'></FaEyeSlash> <small>Hide Password</small></div>
+                                }
+                            </span>
                         </div>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -56,11 +64,12 @@ const Login = () => {
                         <input className="login-btn" type="submit" value="Login" />
                     </div>
                 </form>
+
                 <h1>Didn't have an account? <Link className='text-blue-600' to="/register">Sign Up</Link></h1>
                 <div className="divider">Or</div>
-                <button className="btn btn-outline btn-warning w-full">Login With Google</button>
+                <SocialLogin></SocialLogin>
             </div>
-            <Toaster/>
+            <Toaster />
         </div>
     );
 };

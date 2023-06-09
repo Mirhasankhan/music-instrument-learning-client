@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
+import SocialLogin from '../../Components/SocialLogin';
+
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth()
@@ -22,20 +23,35 @@ const Register = () => {
         }
         else {
             createUser(data.email, data.password)
-                .then((result) => {
-                    toast.success('user created successfully',{
-                        position: 'top-right',
-                        style: {backgroundColor: 'blue', color: 'white'}
-                    })
+                .then(() => {
                     updateUserProfile(data.name, data.photo)
+                        .then(() => {
+                            const insertUser = { name: data.name, email: data.email }
+                            fetch('http://localhost:5000/users', {
+                                method: 'POST',
+                                headers: {
+                                    'content-type': 'application/json',
+                                },                                
+                                body: JSON.stringify(insertUser)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (data.insertedId) {
+                                        reset()
+                                        toast.success('user created successfully', {
+                                            position: 'top-right',
+                                            style: { backgroundColor: 'blue', color: 'white' }
+                                        })
+                                    }
+                                })
+                        })
                 })
                 .catch((error) => {
                     toast.error(error.message, {
                         position: 'top-right',
-                        style: {backgroundColor: 'black', color: 'white'}
+                        style: { backgroundColor: 'black', color: 'white' }
                     })
                 })
-                reset()
         }
     };
     return (
@@ -86,14 +102,15 @@ const Register = () => {
                         {errors.photo && <span className="text-red-600">Photo is required</span>}
                     </div>
                     <div className="form-control mt-6">
-                        <input className="login-btn" type="submit" value="Login" />
+                        <input className="login-btn" type="submit" value="Sign Up" />
                     </div>
                 </form>
+
                 <h1>Already have an account? <Link className='text-blue-600' to="/login">Login</Link></h1>
                 <div className="divider">Or</div>
-                <button className="btn btn-outline btn-warning w-full">Login With Google</button>
+                <SocialLogin></SocialLogin>
             </div>
-            <Toaster/>
+            <Toaster />
         </div>
     );
 };

@@ -5,11 +5,18 @@ import useAuth from '../Hooks/useAuth';
 
 
 const Navbar = () => {
-    const {user} = useAuth()   
+    const {user, logOut} = useAuth()   
     const [open, setOpen] = useState(false)
+
+    const handleLogout = ()=>{
+        logOut()
+        .then(()=>{})
+        .catch(()=>{})
+    }
+
     return (
         <div>
-            <div className="navbar bg-red-100">
+            <div className="navbar bg-blue-500">
                 <div className="flex-1">
                     <a className="btn btn-ghost normal-case text-2xl">TuneTutor</a>
                 </div>
@@ -19,7 +26,11 @@ const Navbar = () => {
                         <Link className='hover:text-green-400 text-xl' to="/">Instructors</Link>
                         <Link className='hover:text-green-400 text-xl' to="/classes">Classes</Link>
                         <Link className='hover:text-green-400 text-xl' to="/dashboard">Dashboard</Link>
-                        <Link className='hover:text-green-400 text-xl' to="/login">Login</Link>
+                        {
+                            user?.email ? <><img className='h-12 rounded-full' src={user.photoURL} alt="" /> 
+                            <button onClick={handleLogout} className="btn btn-sm">Logout</button></> 
+                            : <Link to="/login"><button className='btn btn-sm'>Login</button></Link>
+                        }
                     </ul>
                 </div>
                 <div className='md:hidden relative'>

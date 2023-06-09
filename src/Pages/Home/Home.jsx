@@ -1,5 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import Banner from './Banner';
+
 
 const Home = () => {
     return (
@@ -8,7 +10,8 @@ const Home = () => {
                 <title>TuneTutor | Home</title>
             </Helmet>
             <div>
-                this is home
+                {/* todo have to lower the height of image */}
+                <Banner></Banner>
             </div>
         </div>
     );
