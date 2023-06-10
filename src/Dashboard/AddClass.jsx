@@ -1,16 +1,36 @@
 import React from 'react';
 import useAuth from '../Hooks/useAuth';
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddClass = () => {
     const { user } = useAuth()
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        const {photo, price, seats, instructorName ,email} = data;     
+        const addedClass = {class: data.class, photo, price: parseFloat(price), seats: parseFloat(seats), instructorName,email, status: 'pending' }
+       
+        fetch('http://localhost:5000/classes',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addedClass)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.insertedId){
+                toast.success('Class Added successfully', {
+                    position: 'top-right',
+                    style: { backgroundColor: 'blue', color: 'white' }
+                })
+            }
+        })
+        reset()
     };
     return (
         <div className='w-full px-5'>
-            <form onClick={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex'>
                     <div className="form-control w-full ">
                         <label className="label">
@@ -59,6 +79,7 @@ const AddClass = () => {
                 </div>
                 <input className='login-btn mt-3' type="submit" value="Add Class" />
             </form>
+            <Toaster></Toaster>
         </div>
     );
 };
