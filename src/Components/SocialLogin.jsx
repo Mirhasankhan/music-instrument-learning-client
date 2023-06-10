@@ -3,21 +3,34 @@ import useAuth from '../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
 
 const SocialLogin = () => {
-    const {googleSignIn} = useAuth()
-    const handleGoogleSignIn = ()=>{
+    const { googleSignIn } = useAuth()
+    const handleGoogleSignIn = () => {
         googleSignIn()
-        .then(()=>{
-            toast.success('LoggedIn successfully',{
-                position: 'top-right',
-                style: {backgroundColor: 'blue', color: 'white'}
+            .then((result) => {
+                const loggedInUser = result.user;
+                const insertUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(insertUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        toast.success('LoggedIn successfully', {
+                            position: 'top-right',
+                            style: { backgroundColor: 'blue', color: 'white' }
+                        })
+                    })
+
             })
-        })
-        .catch((error)=>{
-            toast.error(error.message, {
-                position: 'top-right',
-                style: {backgroundColor: 'black', color: 'white'}
-            })   
-        })
+            .catch((error) => {
+                toast.error(error.message, {
+                    position: 'top-right',
+                    style: { backgroundColor: 'black', color: 'white' }
+                })
+            })
     }
     return (
         <div>

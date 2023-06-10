@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Dashboard/Dashboard";
 import AllUsers from "../Dashboard/AllUsers";
+import AddClass from "../Dashboard/AddClass";
 
 const router = createBrowserRouter([
     {
@@ -34,9 +35,15 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard></Dashboard>,
         children: [
+            // users related routes
             {
                 path: 'allUsers',
                 element: <AllUsers></AllUsers>
+            },
+            // instructor related routes
+            {
+                path: 'addClass',
+                element: <AddClass></AddClass>
             }
         ]
     }
