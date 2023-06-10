@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
-    const isStudent = false
+    const isStudent = true
     const isInstructor = false
-    const isAdmin =true
+    const isAdmin =false
 
     return (
         <div>
@@ -29,6 +29,13 @@ const Dashboard = () => {
                         isInstructor && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                             <Link to="/dashboard/addClass">Add Class</Link>
                             <Link to="/dashboard/myClasses">My Classes</Link>
+                            <li><a>Sidebar Item 2</a></li>
+                        </ul>
+                    }
+                    {
+                        isStudent && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                            <Link to="/dashboard/selected">Selected Classes</Link>
+                            <Link to="/dashboard/enrolled">Enrolled Classes</Link>
                             <li><a>Sidebar Item 2</a></li>
                         </ul>
                     }

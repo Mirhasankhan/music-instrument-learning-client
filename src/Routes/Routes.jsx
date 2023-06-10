@@ -10,6 +10,7 @@ import AddClass from "../Dashboard/AddClass";
 import ManageClasses from "../Dashboard/ManageClasses";
 import Instructors from "../Pages/Instructors/Instructors";
 import MyClasses from "../Dashboard/MyClasses";
+import SelectedClass from "../Dashboard/SelectedClass";
 
 const router = createBrowserRouter([
     {
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
             {
                 path: 'myClasses',
                 element: <MyClasses></MyClasses>
+            },
+            // student related routes
+            {
+                path: 'selected',
+                element: <SelectedClass></SelectedClass>
             }
         ]
     }
