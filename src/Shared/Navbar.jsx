@@ -23,7 +23,7 @@ const Navbar = () => {
                 <div className="hidden md:block flex-none">
                     <ul className="menu menu-horizontal px-1 gap-6">
                         <Link className='hover:text-green-400 text-xl' to="/">Home</Link>
-                        <Link className='hover:text-green-400 text-xl' to="/">Instructors</Link>
+                        <Link className='hover:text-green-400 text-xl' to="/instructors">Instructors</Link>
                         <Link className='hover:text-green-400 text-xl' to="/classes">Classes</Link>
                         <Link className='hover:text-green-400 text-xl' to="/dashboard">Dashboard</Link>
                         {
