@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const ManageClasses = () => {
-    const { data: classes = [] } = useQuery({
+    const { data: classes = [], refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/classes')
@@ -10,6 +10,17 @@ const ManageClasses = () => {
         }
 
     })
+
+    const handleApprove = (id)=>{
+        fetch(`http://localhost:5000/classes/${id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data =>{
+            refetch()
+        })
+    }
+   
     return (
         <div className='w-full px-6'>
             <div className="overflow-x-auto">
@@ -42,7 +53,7 @@ const ManageClasses = () => {
                                 <td>{sClass.price}</td>
                                 <td className='text-red-400 font-medium'>{sClass.status}</td>
                                 <td className='flex items-center gap-3'>
-                                    <button className="btn btn-success">Approve</button>
+                                    <button onClick={()=>handleApprove(sClass._id)} className="btn btn-success">Approve</button>
                                     <button className="btn btn-warning">Deny</button>
                                     <button className="btn btn-primary">Send Feedback</button>
                                 </td>

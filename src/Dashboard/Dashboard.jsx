@@ -3,8 +3,8 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     const isStudent = false
-    const isInstructor = true
-    const isAdmin = false
+    const isInstructor = false
+    const isAdmin =true
 
     return (
         <div>
