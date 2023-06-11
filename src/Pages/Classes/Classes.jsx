@@ -3,8 +3,11 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
 import toast,{ Toaster } from 'react-hot-toast';
+// import useAdmin from '../../Hooks/useAdmin';
 
 const Classes = () => {
+    // const [isAdmin] = useAdmin()
+    // console.log(isAdmin);
     const {user} = useAuth()
     const { data: approvedClasses = [] } = useQuery({
         queryKey: ['approved'],
@@ -45,6 +48,7 @@ const Classes = () => {
                 <title>TuneTutor | Classes</title>
             </Helmet>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-3 gap-3'>
+                
                 {
                     approvedClasses.map(approved => <div 
                         key={approved._id}

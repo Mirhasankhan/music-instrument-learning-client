@@ -12,6 +12,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import MyClasses from "../Dashboard/MyClasses";
 import SelectedClass from "../Dashboard/SelectedClass";
 
+
 const router = createBrowserRouter([
     {
         path: '/',

@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useAuth from '../Hooks/useAuth';
 
 const Dashboard = () => {
-    const isStudent = true
-    const isInstructor = false
-    const isAdmin =false
+    const [checkUser, setCheckUser] = useState()
+    const { user, loading } = useAuth()
+
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => setCheckUser(data))
+    }, [])
+    const addmin = checkUser?.find(check => check.role === 'admin' && check.email === user?.email)
+    const instrucor = checkUser?.find(check => check.role === 'instructor' && check.email === user?.email)
+    const isStudent = checkUser?.find(check => check.role !== 'admin' && check.email === user?.email)
+   
+
+
+
+    // const isStudent = false
+    // const isInstructor = false
+    // const isAdmin = false
 
     return (
         <div>
@@ -19,14 +35,14 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     {
-                        isAdmin && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                        addmin && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                             <Link to="/dashboard/allUsers">All Users</Link>
                             <Link to="/dashboard/manageClass">Manage Classes</Link>
                             <li><a>Sidebar Item 2</a></li>
                         </ul>
                     }
                     {
-                        isInstructor && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                        instrucor && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                             <Link to="/dashboard/addClass">Add Class</Link>
                             <Link to="/dashboard/myClasses">My Classes</Link>
                             <li><a>Sidebar Item 2</a></li>
