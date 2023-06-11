@@ -7,8 +7,8 @@ const AddClass = () => {
     const { user } = useAuth()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        const {photo, price, seats, instructorName ,email} = data;   
-        console.log(parseFloat(price));  
+        const {photo, price, seats, instructorName ,email} = data; 
+        
         const addedClass = {class: data.class, photo, price: parseFloat(price), seats: parseFloat(seats), instructorName,email, status: 'pending' }
        
         fetch('http://localhost:5000/classes',{
