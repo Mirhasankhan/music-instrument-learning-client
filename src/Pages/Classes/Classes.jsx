@@ -3,12 +3,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
 import toast,{ Toaster } from 'react-hot-toast';
-// import useAdmin from '../../Hooks/useAdmin';
+import Swal from 'sweetalert2';
+import useUsers from '../../Hooks/useUsers';
 
-const Classes = () => {
-    // const [isAdmin] = useAdmin()
-    // console.log(isAdmin);
+const Classes = () => {    
     const {user} = useAuth()
+    const [users] = useUsers()
+    const addmin = users?.find(check => check.role === 'admin' && check.email === user?.email)
+    const instrucor = users?.find(check => check.role === 'instructor' && check.email === user?.email)
+
+  
     const { data: approvedClasses = [] } = useQuery({
         queryKey: ['approved'],
         queryFn: async () => {
@@ -18,8 +22,8 @@ const Classes = () => {
     })
 
     const handleSelectClass = (service)=>{
-        if(user?.role !== 'instructor' || user?.role !== 'admin'){
-            const selectedClass = {sellerEmail: service.email, email: user.email, class: service.class, price: service.price, sellerName: service.instructorName}
+        if(!addmin && !instrucor && user?.email){
+            const selectedClass = {sellerEmail: service.email, email: user?.email, class: service.class, price: service.price, sellerName: service.instructorName}
            
             fetch(`http://localhost:5000/selected`,{
                 method: 'POST',
@@ -37,7 +41,11 @@ const Classes = () => {
             })
         }
         else{
-            alert('you cant')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You need to login as Student'                
+              })
         }
        
     }
@@ -47,8 +55,7 @@ const Classes = () => {
             <Helmet>
                 <title>TuneTutor | Classes</title>
             </Helmet>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-3 gap-3'>
-                
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-3 gap-3'>                
                 {
                     approvedClasses.map(approved => <div 
                         key={approved._id}
@@ -60,7 +67,7 @@ const Classes = () => {
                             <p>{approved.seats}</p>
                             <p>{approved.price}</p>
                             <div className="card-actions justify-end">
-                                <button onClick={()=>handleSelectClass(approved)} className="btn btn-primary">Select Class</button>
+                                <button disabled={addmin || instrucor || approved.seats == 0 ? true : false} onClick={()=>handleSelectClass(approved)} className="btn btn-primary">Select Class</button>
                             </div>
                         </div>
                     </div>)

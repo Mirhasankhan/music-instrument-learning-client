@@ -25,7 +25,9 @@ const Navbar = () => {
                         <Link className='hover:text-green-400 text-xl' to="/">Home</Link>
                         <Link className='hover:text-green-400 text-xl' to="/instructors">Instructors</Link>
                         <Link className='hover:text-green-400 text-xl' to="/classes">Classes</Link>
-                        <Link className='hover:text-green-400 text-xl' to="/dashboard">Dashboard</Link>
+                        {
+                            user?.email && <Link className='hover:text-green-400 text-xl' to="/dashboard">Dashboard</Link>
+                        }
                         {
                             user?.email ? <><img className='h-12 rounded-full' src={user.photoURL} alt="" /> 
                             <button onClick={handleLogout} className="btn btn-sm">Logout</button></> 

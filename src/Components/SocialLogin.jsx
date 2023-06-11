@@ -8,7 +8,7 @@ const SocialLogin = () => {
         googleSignIn()
             .then((result) => {
                 const loggedInUser = result.user;
-                const insertUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                const insertUser = { name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photoURL }
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {

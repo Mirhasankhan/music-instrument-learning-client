@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-import { useQuery } from '@tanstack/react-query'
-import useAuth from '../Hooks/useAuth';
+import toast, { Toaster } from 'react-hot-toast';
+import useUsers from '../Hooks/useUsers';
 
 const AllUsers = () => {
     const [isDisabled, setDisabled] = useState(false)
-    const { user } = useAuth()
-    const { data: users = [] } = useQuery({
-        queryKey: ['users', user?.email],
-        queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users')
-            return res.json()
-        }
-    })
+    const [users] = useUsers()
+    
     const handleMakeInstructor = (id)=>{   
         setDisabled(true)     
         fetch(`http://localhost:5000/users/instructor/${id}`,{
@@ -21,7 +15,10 @@ const AllUsers = () => {
         .then(data =>{
             console.log(data);
             if(data.modifiedCount){
-                alert('user listed as instructor')
+                toast.success('User listed as instructor', {
+                    position: 'top-right',
+                    style: { backgroundColor: 'blue', color: 'white' }
+                })
             }
         })
     };
@@ -35,7 +32,10 @@ const AllUsers = () => {
         .then(data =>{
             console.log(data);
             if(data.modifiedCount){
-                alert('user listed as Admin')
+                toast.success('User listed as admin', {
+                    position: 'top-right',
+                    style: { backgroundColor: 'blue', color: 'white' }
+                })
             }
         })
     }
@@ -69,6 +69,7 @@ const AllUsers = () => {
                     </tbody>
                 </table>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };
