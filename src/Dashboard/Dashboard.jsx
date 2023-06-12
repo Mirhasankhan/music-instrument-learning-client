@@ -13,7 +13,11 @@ const Dashboard = () => {
     }, [])
     const addmin = checkUser?.find(check => check.role === 'admin' && check.email === user?.email)
     const instrucor = checkUser?.find(check => check.role === 'instructor' && check.email === user?.email)
-    const isStudent = checkUser?.find(check => check.role !== 'admin' && check.email === user?.email) 
+    let isStudent = false
+    if(!addmin && !instrucor){
+        isStudent = true
+    }
+   
 
     return (
         <div>
