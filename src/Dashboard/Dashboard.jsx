@@ -4,7 +4,7 @@ import useAuth from '../Hooks/useAuth';
 
 const Dashboard = () => {
     const [checkUser, setCheckUser] = useState()
-    const { user, loading } = useAuth()
+    const { user } = useAuth()  
 
     useEffect(() => {
         fetch('https://music-instrument-learning-server-seven.vercel.app/users')

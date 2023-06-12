@@ -11,8 +11,9 @@ const StatusTab = ({ status }) => {
                     <div className="card-body">
                         <h2 className="card-title">{approved.class}</h2>
                         <p>{approved.seats}</p>
-                        <p>todo feedback will come here</p>
-                        <button className="btn btn-warning"></button>                       
+                        <p>{approved?.feedback || ''}</p>
+                        <p>Total enrolled students todo</p>
+                        <button className="btn btn-warning">Update</button>                       
                     </div>
                 </div>)
             }
