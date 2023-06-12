@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StatusTab = ({status}) => {
+const StatusTab = ({ status }) => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
             {
@@ -12,7 +12,7 @@ const StatusTab = ({status}) => {
                         <h2 className="card-title">{approved.class}</h2>
                         <p>{approved.seats}</p>
                         <p>todo feedback will come here</p>
-
+                        <button className="btn btn-warning"></button>                       
                     </div>
                 </div>)
             }

@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const { signIn } = useAuth()
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(true)
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {

@@ -7,7 +7,7 @@ const Dashboard = () => {
     const { user, loading } = useAuth()
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://music-instrument-learning-server-seven.vercel.app/users')
             .then(res => res.json())
             .then(data => setCheckUser(data))
     }, [])

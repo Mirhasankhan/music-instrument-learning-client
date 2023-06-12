@@ -11,12 +11,14 @@ import ManageClasses from "../Dashboard/ManageClasses";
 import Instructors from "../Pages/Instructors/Instructors";
 import MyClasses from "../Dashboard/MyClasses";
 import SelectedClass from "../Dashboard/SelectedClass";
+import ErrorURL from "../Components/ErrorURL";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorURL></ErrorURL>,
         children: [
             {
                 path: '/',
