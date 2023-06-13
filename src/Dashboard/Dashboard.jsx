@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import useAuth from '../Hooks/useAuth';
+import useUserrole from '../Hooks/useUserrole';
 
-const Dashboard = () => {
-    const [checkUser, setCheckUser] = useState()
-    const { user } = useAuth()  
-
-    useEffect(() => {
-        fetch('https://music-instrument-learning-server-seven.vercel.app/users')
-            .then(res => res.json())
-            .then(data => setCheckUser(data))
-    }, [])
-    const addmin = checkUser?.find(check => check.role === 'admin' && check.email === user?.email)
-    const instrucor = checkUser?.find(check => check.role === 'instructor' && check.email === user?.email)
-    let isStudent = false
-    if(!addmin && !instrucor){
-        isStudent = true
-    }
-   
+const Dashboard = () => {  
+    const [addmin, instrucor, isStudent] = useUserrole()
 
     return (
         <div>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content">
                     {/* Page content here */}
                     <Outlet></Outlet>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>

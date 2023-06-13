@@ -2,11 +2,14 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import useAuth from '../Hooks/useAuth';
+import useUserrole from '../Hooks/useUserrole';
 
 
 const Navbar = () => {
     const {user, logOut} = useAuth()   
     const [open, setOpen] = useState(false)
+    const [addmin, instrucor, isStudent] = useUserrole()
+
 
     const handleLogout = ()=>{
         logOut()
@@ -26,7 +29,7 @@ const Navbar = () => {
                         <Link className='hover:text-green-400 text-xl' to="/instructors">Instructors</Link>
                         <Link className='hover:text-green-400 text-xl' to="/classes">Classes</Link>
                         {
-                            user?.email && <Link className='hover:text-green-400 text-xl' to="/dashboard">Dashboard</Link>
+                            user?.email && <Link className='hover:text-green-400 text-xl' to={addmin ? '/dashboard/adminHome' : instrucor ? '/dashboard/instructorHome' : '/dashboard/studentHome'}>Dashboard</Link>
                         }
                         {
                             user?.email ? <><img className='h-12 rounded-full' src={user.photoURL} alt="" /> 
