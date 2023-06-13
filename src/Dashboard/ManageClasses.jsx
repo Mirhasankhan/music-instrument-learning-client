@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useRef, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast, { Toaster } from 'react-hot-toast';
 
 const ManageClasses = () => {
@@ -67,6 +68,9 @@ const ManageClasses = () => {
 
     return (
         <div className='px-6'>
+            <Helmet>
+                <title>Dashboard | Manage Class</title>
+            </Helmet>
             <h1 className='animate__animated animate__backInRight text-center font-medium text-2xl md:text-3xl text-purple-600 my-8 border-b-2 pb-3'>Take Action For Those Submitted Classes</h1>
             <div className='w-full '>
                 <dialog id="my_modal_2" className="modal">

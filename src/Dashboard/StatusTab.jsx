@@ -6,6 +6,10 @@ const StatusTab = ({ status }) => {
     const seatsRef = useRef()
     const [selectedClassId, setSelectedClassId] = useState('');
 
+    if(status.length <1){
+        return <h1 className='text-red-500 text-2xl font-medium'>No Class Added Here!!</h1>
+    }
+
     const handleClassUpdate = (id) => {
         const classValue = classref.current.value;
         const seatsValue = seatsRef.current.value
@@ -49,7 +53,7 @@ const StatusTab = ({ status }) => {
                     <button>close</button>
                 </form>
             </dialog>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mb-4'>
                 {
                     status.map(approved => <div
                         key={approved._id}

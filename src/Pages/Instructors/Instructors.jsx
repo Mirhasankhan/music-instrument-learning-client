@@ -16,12 +16,12 @@ const Instructors = () => {
             {
                 allInstructors.map(ins => <div
                  key={ins._id}
-                 className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
-                    <figure><img src={ins.photo} alt="Shoes" /></figure>
+                 className="card card-compact w-96 bg-purple-300 shadow-xl mx-auto">
+                    <figure><img className='h-64 w-full' src={ins.photo} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{ins.name}</h2>
                         <p className='text-xl font-normal'>{ins.email}</p>
-                        <div className="card-actions justify-end">
+                        <div className="card-actions justify-start">
                             <button className="btn btn-warning">Show Classes</button>
                         </div>
                     </div>

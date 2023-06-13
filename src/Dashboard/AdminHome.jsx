@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../Hooks/useAuth';
 import { Link } from 'react-router-dom';
 import useUsers from '../Hooks/useUsers';
+import { Helmet } from 'react-helmet-async';
 
 const AdminHome = () => {
     const [ins, setIns] = useState(null)
@@ -14,6 +15,9 @@ const AdminHome = () => {
     const { user } = useAuth()
     return (
         <div className='p-5'>
+            <Helmet>
+                <title>Dashboard | Home</title>
+            </Helmet>
             <div>
                 <h1 className='uppercase text-3xl font-medium mb-4'>Hi, {user?.displayName}</h1>
                 <div className="card h-96 w-full md:w-2/3 bg-wave bg-cover text-white shadow-xl">
