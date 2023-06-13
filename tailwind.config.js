@@ -8,7 +8,8 @@ export default {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/background-login.jpg')",
-        'footer-texture': "url('/img/footer-texture.png')",
+        'wave': "url('/src/assets/wave-haikei.png')",
+        'blob': "url('/src/assets/blob-scene-haikei.png')",
       }
     }
   },

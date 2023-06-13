@@ -6,11 +6,11 @@ import { FaFacebook, FaYoutube, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
     return (
         <div>
-            <footer className="grid grid-cols-2 md:grid-cols-3 footer p-10 bg-[#111723] text-base-content">
+            <footer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 footer p-10 bg-[#111723] text-base-content">
                 <div className='text-white'>
                     <div className='flex items-center'>
                         <img className='rounded-full h-12 md:h-16' src={logo} alt="" />
-                        <h1 className='italic text-3xl font-semibold ml-2'>TuneTutor</h1>
+                        <h1 className='italic text-xl md:text-3xl font-semibold ml-2'>TuneTutor</h1>
                     </div>
                     <h1>Tune Tutor is your final destination for learning music instruments. We have some amazing instructors with long time experience. If you are intructor you can earn money safely from our site.</h1>
                 </div>

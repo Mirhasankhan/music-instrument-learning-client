@@ -18,23 +18,23 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     {
                         addmin && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                            <Link to="/dashboard/adminHome">Home</Link>
                             <Link to="/dashboard/allUsers">All Users</Link>
-                            <Link to="/dashboard/manageClass">Manage Classes</Link>
-                            <li><a>Sidebar Item 2</a></li>
+                            <Link to="/dashboard/manageClass">Manage Classes</Link>                            
                         </ul>
                     }
                     {
                         instrucor && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                            <Link to="/dashboard/instructorHome">Home</Link>
                             <Link to="/dashboard/addClass">Add Class</Link>
-                            <Link to="/dashboard/myClasses">My Classes</Link>
-                            <li><a>Sidebar Item 2</a></li>
+                            <Link to="/dashboard/myClasses">My Classes</Link>                          
                         </ul>
                     }
                     {
                         isStudent && <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                            <Link to="/dashboard/studentHome">Home</Link>
                             <Link to="/dashboard/selected">Selected Classes</Link>
-                            <Link to="/dashboard/enrolled">Enrolled Classes</Link>
-                            <li><a>Sidebar Item 2</a></li>
+                            <Link to="/dashboard/enrolled">Enrolled Classes</Link>                           
                         </ul>
                     }
                 </div>
