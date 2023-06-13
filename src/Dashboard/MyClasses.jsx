@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import StatusTab from './StatusTab';
+import 'animate.css';
 
 const MyClasses = () => {
     const { user } = useAuth()
@@ -20,7 +21,8 @@ const MyClasses = () => {
   
     // todo section title
     return (
-        <div className='w-full px-5'>
+        <div className='w-full p-5'>
+            <h1 className=' text-5xl text-green-400 font-medium text-center mb-6'>My animation</h1>
             <Tabs>
                 <TabList className="bg-purple-600 w-2/3 p-3 flex justify-between rounded-xl mb-3">
                     <Tab className="bg-green-500 text-white p-2 rounded-md">Approved Classes</Tab>
