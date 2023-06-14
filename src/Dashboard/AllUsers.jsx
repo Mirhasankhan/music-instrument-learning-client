@@ -15,8 +15,7 @@ const AllUsers = () => {
             method: 'PATCH'
         })
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .then(data => {               
                 if (data.modifiedCount) {
                     toast.success('User listed as instructor', {
                         position: 'top-right',
@@ -33,7 +32,7 @@ const AllUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                
                 if (data.modifiedCount) {
                     toast.success('User listed as admin', {
                         position: 'top-right',
@@ -42,7 +41,7 @@ const AllUsers = () => {
                 }
             })
     }
-    console.log(isDisabled);
+    
 
     return (
         <div className='md:px-6'>
