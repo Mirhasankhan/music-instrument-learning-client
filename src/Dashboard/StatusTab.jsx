@@ -57,14 +57,14 @@ const StatusTab = ({ status }) => {
                 {
                     status.map(approved => <div
                         key={approved._id}
-                        className="card w-96 bg-orange-200 shadow-xl">
+                        className="card w-96 bg-purple-500 shadow-xl">
                         <figure><img className='w-full h-64' src={approved.photo} alt="Shoes" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">{approved.class}</h2>
-                            <p>{approved.seats}</p>
-                            <p>{approved?.feedback || ''}</p>
-                            <p>Total enrolled students todo</p>
-                            <button className="btn" onClick={() => { setSelectedClassId(approved._id); window.my_modal_2.showModal() }}>Update Class</button>
+                        <div className="card-body flex flex-col">
+                            <h2 className="card-title text-white font-2xl">Classname: {approved.class}</h2>
+                            <p className='text-white'>Available Seats: <span className='text-orange-600 text-xl'>{approved.seats}</span></p>
+                            {approved.feedback && <p className='text-white font-xl text-xl'>Admin Feedback: {approved.feedback}</p>}
+                            {/* <p>Total enrolled students </p> */}
+                            <button className="btn btn-secondary mt-auto" onClick={() => { setSelectedClassId(approved._id); window.my_modal_2.showModal() }}>Update Class</button>
                         </div>
                     </div>)
                 }
