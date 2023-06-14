@@ -4,7 +4,10 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
+  daisyui: {
+    themes: ["light", "dark", "cupcake"],
+  },
+  theme: {   
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/background-login.jpg')",

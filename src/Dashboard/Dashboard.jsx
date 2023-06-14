@@ -38,7 +38,7 @@ const Dashboard = () => {
                     }
                     {
                         instrucor && <ul className="menu p-4 w-80 h-full bg-orange-400 text-base-content">
-                            <img className='h-24 w-24 rounded-full mx-auto my-3' src={user.photoURL} alt="" />
+                            <img className='h-24 w-24 rounded-full mx-auto my-3' src={user?.photoURL} alt="" />
                             <button className='btn btn-success text-white'>Update Profile</button>
                             <div className="divider"></div>
                             <Link to="/dashboard/instructorHome" className='flex items-center bg-purple-400 p-3 rounded-md mb-3'>

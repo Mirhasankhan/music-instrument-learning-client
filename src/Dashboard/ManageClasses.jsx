@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const ManageClasses = () => {
     const textref = useRef()
     const [selectedClassId, setSelectedClassId] = useState('');
+    const [disable, setDisable] = useState(false)
     const { data: classes = [], refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
@@ -115,8 +116,9 @@ const ManageClasses = () => {
                                     <td>{sClass.price}</td>
                                     <td className='text-red-400 font-medium'>{sClass.status}</td>
                                     <td className='flex items-center gap-3'>
-                                        <button onClick={() => handleApprove(sClass._id)} className="btn btn-success">Approve</button>
-                                        <button onClick={() => handleDeny(sClass._id)} className="btn btn-warning">Deny</button>
+                                        <button disabled={disable === sClass._id ? true : false} onClick={() => {handleApprove(sClass._id); setDisable(sClass._id)}} className="btn btn-success">Approve</button>
+                                        <button disabled={disable === sClass._id ? true : false} onClick={() => {handleDeny(sClass._id); setDisable(sClass._id)}} className="btn btn-warning">Deny</button>
+                                        {/* <button onClick={() => handleDeny(sClass._id)} className="btn btn-warning">Deny</button> */}
                                         <button className="btn" onClick={() => { setSelectedClassId(sClass._id); window.my_modal_2.showModal() }}>Feedback</button>
                                     </td>
                                 </tr>)

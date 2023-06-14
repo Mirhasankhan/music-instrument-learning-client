@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async';
 
 const AllUsers = () => {
     const [isDisabled, setDisabled] = useState(false)
+    const [adminDisable, setAdminDisable] = useState(false)
     const [users] = useUsers()
 
     const handleMakeInstructor = (id) => {
@@ -41,6 +42,7 @@ const AllUsers = () => {
                 }
             })
     }
+    console.log(isDisabled);
 
     return (
         <div className='md:px-6'>
@@ -68,8 +70,9 @@ const AllUsers = () => {
                                     <td>{user?.name}</td>
                                     <td>{user?.email}</td>
                                     <td>
-                                        <button onClick={() => handleMakeInstructor(user?._id)} className="btn btn-outline btn-info mr-2">Make Instructor</button>
-                                        <button onClick={() => handleMakeAdmin(user?._id)} className="btn btn-outline btn-success">Make Admin</button>
+                                        <button disabled={user._id == isDisabled ? true : false} onClick={() => {handleMakeInstructor(user?._id); setDisabled(user._id)}} className="btn btn-outline btn-info mr-2">Make Instructor</button>
+                                        <button disabled={user._id == adminDisable ? true : false} onClick={() => {handleMakeAdmin(user?._id); setAdminDisable(user._id)}} className="btn btn-outline btn-success">Make Admin</button>
+                                        {/* <button onClick={() => handleMakeAdmin(user?._id)} className="btn btn-outline btn-success">Make Admin</button> */}
                                     </td>
                                 </tr>)
                             }
