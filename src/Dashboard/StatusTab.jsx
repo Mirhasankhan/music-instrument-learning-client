@@ -39,13 +39,13 @@ const StatusTab = ({ status }) => {
                         <label className="label">
                             <span className="label-text">Class name</span>                            
                         </label>
-                        <input ref={classref} type="text" placeholder="class" className="input input-bordered w-full max-w-xs" />                        
+                        <input required ref={classref} type="text" placeholder="class" className="input input-bordered w-full max-w-xs" />                        
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Available Seats</span>                            
                         </label>
-                        <input ref={seatsRef} type="number" placeholder="seats" className="input input-bordered w-full max-w-xs" />                        
+                        <input required ref={seatsRef} type="number" placeholder="seats" className="input input-bordered w-full max-w-xs" />                        
                     </div>
                     <button onClick={() => handleClassUpdate(selectedClassId)} className='btn btn-success w-1/2 mt-2 text-white'>Confirm Update</button>
                 </div>

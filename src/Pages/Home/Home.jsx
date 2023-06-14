@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Banner from './Banner';
+import PopularInstructors from './PopularInstructors';
 
 
 const Home = () => {    
@@ -12,6 +13,7 @@ const Home = () => {
             <div>
                 {/* todo have to lower the height of image */}
                 <Banner></Banner>
+                <PopularInstructors></PopularInstructors>
             </div>
         </div>
     );

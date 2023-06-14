@@ -56,7 +56,7 @@ const AllUsers = () => {
                         <thead className='bg-purple-400 text-white'>
                             <tr>
                                 <th>SL</th>
-                                <th>Name</th>
+                                <th>User Name</th>
                                 <th>Email</th>
                                 <th>Manage Role</th>
                             </tr>

@@ -1,30 +1,53 @@
 import React from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 import banner1 from '../../assets/guitar.avif'
 import banner2 from '../../assets/harmoni.webp'
 import banner3 from '../../assets/piano.webp'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className='h-96'>
-            <Carousel dynamicHeight={true}>
-                <div >
-                    <img src={banner1} />
-                    <div className='legend'>
-                        <h1>TAKE YOUR MUSIC TO THE NEXT LEVEL.</h1>
+        <div>
+            <Swiper
+                // install Swiper modules
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                onSwiper={(swiper) => { }}
+                onSlideChange={() => { }}
+            >
+                <SwiperSlide className='relative'>
+                    <img className='w-full h-84 md:h-[550px]' src={banner1} alt="" />
+                    <div className='absolute left-24 md:left-48 top-16 md:top-32'>
+                        <h1 className='animate__animated animate__backInDown text-white text-3xl md:text-7xl font-semibold'>Grow your skills <br /> with Tunetutor Academy</h1>
+                      <Link to="/register">  <button className='btn btn-outline btn-warning mt-6'>Register Now</button></Link>
                     </div>
-                </div>
-                <div>
-                    <img src={banner2} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src={banner3} />
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel>
-        </div>        
+                </SwiperSlide>
+                <SwiperSlide className='relative'>
+                    <img className='w-full h-84 md:h-[550px]' src={banner2} alt="" />
+                    <div className='absolute left-24 md:left-48 top-16 md:top-32'>
+                        <h1 className='text-red-600 text-3xl md:text-7xl font-semibold'>We Have Some Of <br /> The Best Instructors</h1>
+                      <Link to="/instructors">  <button className='btn btn-outline text-white mt-6'>See Instructors</button></Link>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide className='relative'>
+                    <img className='w-full h-84 md:h-[550px]' src={banner3} alt="" />
+                    <div className='absolute left-24 md:left-48 top-16 md:top-32'>
+                        <h1 className='text-red-600 text-3xl md:text-7xl font-semibold'>Learn Music For Fun <br /> With Our Instructors</h1>
+                      <Link>  <button className='btn btn-primary text-red-500 mt-6'>Contact Us</button></Link>
+                    </div>
+                </SwiperSlide>               
+                ...
+            </Swiper>
+        </div>
     );
 };
 

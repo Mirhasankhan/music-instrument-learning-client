@@ -87,7 +87,7 @@ const ManageClasses = () => {
                 <div className="overflow-x-auto">
                     <table className="table">
                         <thead>
-                            <tr>
+                            <tr className='bg-purple-400 text-white'>
                                 <th>#</th>
                                 <th>Image</th>
                                 <th>Class Name</th>
@@ -113,7 +113,7 @@ const ManageClasses = () => {
                                     </td>
 
                                     <td>{sClass.seats}</td>
-                                    <td>{sClass.price}</td>
+                                    <td>${sClass.price}</td>
                                     <td className='text-red-400 font-medium'>{sClass.status}</td>
                                     <td className='flex items-center gap-3'>
                                         <button disabled={disable === sClass._id ? true : false} onClick={() => {handleApprove(sClass._id); setDisable(sClass._id)}} className="btn btn-success">Approve</button>
