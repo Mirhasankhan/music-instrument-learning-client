@@ -8,7 +8,7 @@ const AdminHome = () => {
     const [ins, setIns] = useState(null)
     const [users] = useUsers()   
     useEffect(() => {
-        fetch('https://music-instrument-learning-server-seven.vercel.app/users?role=instructor')
+        fetch('http://localhost:5000/users?role=instructor')
             .then(res => res.json())
             .then(data => setIns(data.length))
     }, [])

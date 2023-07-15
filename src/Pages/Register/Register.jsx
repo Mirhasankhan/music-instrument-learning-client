@@ -27,7 +27,7 @@ const Register = () => {
                     updateUserProfile(data.name, data.photo)
                         .then(() => {
                             const insertUser = { name: data.name, email: data.email, photo: data.photo }
-                            fetch('https://music-instrument-learning-server-seven.vercel.app/users', {
+                            fetch('http://localhost:5000/users', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json',

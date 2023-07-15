@@ -9,7 +9,7 @@ const SocialLogin = () => {
             .then((result) => {
                 const loggedInUser = result.user;
                 const insertUser = { name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photoURL }
-                fetch('https://music-instrument-learning-server-seven.vercel.app/users', {
+                fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

@@ -3,19 +3,21 @@ import React from 'react';
 import useAuth from '../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const { user } = useAuth()  
     const { data: selectedClass = [], refetch } = useQuery({
         queryKey: ['selected', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://music-instrument-learning-server-seven.vercel.app/selected?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/selected?email=${user?.email}`)
             return res.json()
         }
+        
     })
 
     const handleDeleteClass = (id) => {
-        fetch(`https://music-instrument-learning-server-seven.vercel.app/selected/${id}`, {
+        fetch(`http://localhost:5000/selected/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -67,7 +69,8 @@ const SelectedClass = () => {
                         </div>
                     }
                 </div>
-                <button  className={`btn btn-warning mt-3 px-12 text-white ${selectedClass.length < 1 ? 'hidden': 'block'}`}>Pay</button>
+                {/* ${selectedClass.length < 1 ? 'hidden': 'block'}` */}
+               <Link to="/dashboard/payment"> <button  className={`btn btn-warning mt-3 px-12 text-white `}>Pay</button></Link>
             </div>
         </div>
     );

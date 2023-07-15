@@ -17,7 +17,7 @@ const Classes = () => {
     const { data: approvedClasses = [] } = useQuery({
         queryKey: ['approved'],
         queryFn: async () => {
-            const res = await fetch('https://music-instrument-learning-server-seven.vercel.app/classes?status=approved')
+            const res = await fetch('http://localhost:5000/classes?status=approved')
             return res.json()
         }
     })
@@ -26,7 +26,7 @@ const Classes = () => {
         if (!addmin && !instrucor && user?.email) {
             const selectedClass = { sellerEmail: service.email, email: user?.email, class: service.class, price: service.price, sellerName: service.instructorName }
             //    todo 
-            fetch(`https://music-instrument-learning-server-seven.vercel.app/selected`, {
+            fetch(`http://localhost:5000/selected`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

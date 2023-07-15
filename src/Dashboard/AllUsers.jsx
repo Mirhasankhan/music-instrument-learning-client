@@ -11,7 +11,7 @@ const AllUsers = () => {
 
     const handleMakeInstructor = (id) => {
         setDisabled(true)
-        fetch(`https://music-instrument-learning-server-seven.vercel.app/users/instructor/${id}`, {
+        fetch(`http://localhost:5000/users/instructor/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -27,7 +27,7 @@ const AllUsers = () => {
 
     const handleMakeAdmin = (id) => {
         setDisabled(true)
-        fetch(`https://music-instrument-learning-server-seven.vercel.app/users/admin/${id}`, {
+        fetch(`http://localhost:5000/users/admin/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

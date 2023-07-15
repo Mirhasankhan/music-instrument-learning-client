@@ -12,7 +12,7 @@ const AddClass = () => {
 
         const addedClass = { class: data.class, photo, price: parseFloat(price), seats: parseFloat(seats), instructorName, email, status: 'pending' }
 
-        fetch('https://music-instrument-learning-server-seven.vercel.app/classes', {
+        fetch('http://localhost:5000/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

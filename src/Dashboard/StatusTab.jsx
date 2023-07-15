@@ -14,7 +14,7 @@ const StatusTab = ({ status }) => {
         const classValue = classref.current.value;
         const seatsValue = seatsRef.current.value
         const results = { class: classValue, seats: seatsValue }       
-        fetch(`https://music-instrument-learning-server-seven.vercel.app/myClasses/${id}`, {
+        fetch(`http://localhost:5000/myClasses/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -15,6 +15,11 @@ import ErrorURL from "../Components/ErrorURL";
 import InstructorHome from "../Dashboard/InstructorHome";
 import AdminHome from "../Dashboard/AdminHome";
 import StudentHome from "../Dashboard/StudentHome";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
+import Payment from "../Dashboard/Payment";
+
 
 
 const router = createBrowserRouter([
@@ -53,37 +58,42 @@ const router = createBrowserRouter([
 
             {
                 path: 'allUsers',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: 'adminHome',
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+            },
+            {
+                path: 'manageClass',
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             // instructor related routes
             {
                 path: 'instructorHome',
-                element: <InstructorHome></InstructorHome>
+                element: <InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
             },
             {
                 path: 'addClass',
-                element: <AddClass></AddClass>
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
             },
-            {
-                path: 'manageClass',
-                element: <ManageClasses></ManageClasses>
-            },
+            
             {
                 path: 'myClasses',
-                element: <MyClasses></MyClasses>
+                element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
             // student related routes
             {
                 path: 'studentHome',
-                element: <StudentHome></StudentHome>
+                element: <StudentRoute><StudentHome></StudentHome></StudentRoute>
             },
             {
                 path: 'selected',
-                element: <SelectedClass></SelectedClass>
+                element: <StudentRoute><SelectedClass></SelectedClass></StudentRoute>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             }
         ]
     }

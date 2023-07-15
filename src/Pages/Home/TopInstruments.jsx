@@ -6,6 +6,7 @@ import img3 from '../../assets/piano2.avif'
 import img4 from '../../assets/tobla.avif'
 import img5 from '../../assets/harmoni.webp'
 import img6 from '../../assets/drum.webp'
+import AdminRoute from '../../Routes/AdminRoute';
 
 const TopInstruments = () => {
     return (
@@ -27,6 +28,7 @@ const TopInstruments = () => {
                 <img className='h-96 w-full rounded-md' src={img2} alt="" />
                 <img className='h-96 w-full rounded-md' src={img6} alt="" />
             </div>
+            <AdminRoute></AdminRoute>
         </div>
     );
 };
