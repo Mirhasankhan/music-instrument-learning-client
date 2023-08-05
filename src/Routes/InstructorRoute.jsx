@@ -6,10 +6,13 @@ const InstructorRoute = ({children}) => {
     if (isLoading) {
         return <span className="loading loading-spinner text-secondary"></span>
     }
-    if (instrucor) {
+    else if (instrucor) {
         return children
     }
-    return <Navigate to="/"></Navigate>
+    else if(addmin,isStudent){
+        return <Navigate to="/"></Navigate>
+    }
+   
 };
 
 export default InstructorRoute;

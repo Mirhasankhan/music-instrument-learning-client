@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
 import SocialLogin from '../../Components/SocialLogin';
@@ -9,6 +9,9 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const Login = () => {
     const { signIn } = useAuth()
     const [show, setShow] = useState(true)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location?.state?.from?.pathname || '/'
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -18,7 +21,7 @@ const Login = () => {
                     position: 'top-right',
                     style: { backgroundColor: 'blue', color: 'white' }
                 })
-
+                navigate(from, { replace: true })
             })
             .catch((error) => {
                 toast.error(error.message, {

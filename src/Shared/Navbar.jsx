@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import useAuth from '../Hooks/useAuth';
 import useUserrole from '../Hooks/useUserrole';
 import logo from '../assets/tutorlogo.jpg'
+import { ThemeContext } from '../Providers/ThemeProvider';
+import { FaMoon, FaRegMoon } from 'react-icons/fa';
 
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
     const [open, setOpen] = useState(false)
     const [addmin, instrucor, isStudent] = useUserrole()
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     const handleLogout = () => {
         logOut()
@@ -37,6 +40,13 @@ const Navbar = () => {
                                 <button onClick={handleLogout} className="btn btn-error text-white">Logout</button></>
                                 : <Link to="/login"><button className='btn btn-success text-white'>Login</button></Link>
                         }
+                        {
+                            isDarkMode ? <div title='Switch To Light Mode'>
+                                <button className='text-xl' onClick={toggleTheme}><FaMoon /></button>
+                            </div> : <div title='Switch To Dark Mode'>
+                                <button className='text-xl text-black' onClick={toggleTheme}><FaRegMoon /></button>
+                            </div>
+                        }
                     </ul>
                 </div>
                 <div className='md:hidden relative'>
@@ -56,6 +66,9 @@ const Navbar = () => {
                                         <button onClick={handleLogout} className="btn btn-error text-white">Logout</button></>
                                         : <Link to="/login"><button className='btn btn-success text-white'>Login</button></Link>
                                 }
+                                <div>
+                                    <button className='text-xl' onClick={toggleTheme}><FaMoon /></button>
+                                </div>
                             </ul>
                         </div>
                     }

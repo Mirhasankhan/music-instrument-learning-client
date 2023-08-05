@@ -1,9 +1,14 @@
 import React from 'react';
 import useAuth from '../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
     const { googleSignIn } = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location?.state?.from?.pathname || '/'
+    
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then((result) => {
@@ -22,6 +27,7 @@ const SocialLogin = () => {
                             position: 'top-right',
                             style: { backgroundColor: 'blue', color: 'white' }
                         })
+                        navigate(from, { replace: true })
                     })
 
             })

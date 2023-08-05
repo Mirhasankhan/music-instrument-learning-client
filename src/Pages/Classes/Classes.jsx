@@ -1,15 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import useUsers from '../../Hooks/useUsers';
 import { Fade, Slide } from "react-awesome-reveal";
+import { ThemeContext } from '../../Providers/ThemeProvider';
 
 const Classes = () => {
     const { user } = useAuth()
     const [users] = useUsers()
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
     const addmin = users?.find(check => check.role === 'admin' && check.email === user?.email)
     const instrucor = users?.find(check => check.role === 'instructor' && check.email === user?.email)
 
@@ -52,7 +54,7 @@ const Classes = () => {
     }
 
     return (
-        <div>
+        <div className='md:mx-12'>
             <Helmet>
                 <title>TuneTutor | Classes</title>
             </Helmet>
@@ -65,9 +67,9 @@ const Classes = () => {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-3 gap-3'>
                     {
-                        approvedClasses.map(approved => <div key={approved._id} className={`text-white card w-full bg-purple-400 shadow-xl ${approved.seats == 0 ? 'bg-red-500' : 'bg-purple-400'} `}>
-                            <figure className="px-6 pt-5">
-                                <img src={approved.photo} alt="Shoes" className="rounded-xl h-52 w-full" />
+                        approvedClasses.map(approved => <div key={approved._id} className={`card w-full border ${approved.seats == 0 ? 'bg-red-500' : 'bg-white'} `}>
+                            <figure className="px-3 pt-3">
+                                <img src={approved.photo} alt="Shoes" className="rounded-xl h-80 w-full" />
                             </figure>
                             <div className='card-body'>
                                 <h2 className="card-title ">Class Name: {approved.class}</h2>
@@ -77,7 +79,7 @@ const Classes = () => {
                                     <p>Price: <span className='text-black'> ${approved.price}</span></p>
                                 </div>
                                 <div className="card-actions mt-auto">
-                                    <button disabled={addmin || instrucor || approved.seats == 0 ? true : false} onClick={() => handleSelectClass(approved)} className="btn btn-primary w-full">Select Class</button>
+                                    <button disabled={addmin || instrucor || approved.seats == 0 ? true : false} onClick={() => handleSelectClass(approved)} className="common-button w-full">Select Class</button>
                                 </div>
                             </div>
                         </div>)

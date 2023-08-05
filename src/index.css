@@ -1,10 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Delicious+Handrawn&family=Exo+2&family=Itim&family=Josefin+Sans&family=Nunito&family=Poppins&family=Rancho&family=Righteous&family=Roboto&family=Ubuntu&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.input-style{
-    @apply p-2 border-b-2 border-gray-400 focus:outline-green-500
+body {
+    font-family: 'Nunito', sans-serif;
 }
-.login-btn{
+
+.input-style {
+    @apply p-2 border-b-2 border-gray-400 outline-green-500
+}
+
+.login-btn {
     @apply w-full bg-gradient-to-r from-violet-500 to-fuchsia-500 font-medium text-white py-2 rounded-lg
+}
+
+.common-button {
+    @apply bg-sky-500 text-white py-3 px-3 rounded-md font-semibold
 }

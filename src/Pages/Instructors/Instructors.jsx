@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Instructors = () => {
     const { data: allInstructors = [] } = useQuery({
@@ -14,17 +15,17 @@ const Instructors = () => {
     return (
         <div>
             <h1 className='animate__animated animate__backInRight text-center font-medium w-1/2 mx-auto text-2xl md:text-3xl text-purple-600 my-8 border-b-2 pb-3'>Our Instructors</h1>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-3 my-3'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 my-3 md:mx-12'>
                 {
                     allInstructors.map(ins => <div
                         key={ins._id}
-                        className="card card-compact w-96 bg-purple-300 shadow-xl mx-auto">
-                        <figure><img className='h-64 w-full' src={ins.photo} alt="Shoes" /></figure>
+                        className="card card-compact w-full p-3 bg-white border">
+                        <figure><img className='h-80 w-full rounded-md' src={ins.photo} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{ins.name}</h2>
                             <p className='text-xl font-normal'>{ins.email}</p>
                             <div className="card-actions justify-start">
-                                <button className="btn btn-warning">Show Classes</button>
+                               <Link to="/classes"> <button className="common-button">Show Classes</button></Link>
                             </div>
                         </div>
                     </div>)

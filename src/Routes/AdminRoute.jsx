@@ -8,10 +8,12 @@ const AdminRoute = ({children}) => {
     if(isLoading){
         return <span className="loading loading-spinner text-secondary"></span>
     }
-    if(addmin){
+    else if(addmin){
         return children
     }
-    return <Navigate to="/"></Navigate>
+    else if(instrucor,isStudent){
+        return <Navigate to="/"></Navigate>
+    }
 };
 
 export default AdminRoute;
