@@ -85,9 +85,9 @@ const ManageClasses = () => {
                     </form>
                 </dialog>
                 <div className="overflow-x-auto">
-                    <table className="table">
+                    <table className="table table-zebra">
                         <thead>
-                            <tr className='bg-purple-400 text-white'>
+                            <tr className='bg-purple-400 text-white text-[14px]'>
                                 <th>#</th>
                                 <th>Image</th>
                                 <th>Class Name</th>
@@ -116,10 +116,10 @@ const ManageClasses = () => {
                                     <td>${sClass.price}</td>
                                     <td className='text-red-400 font-medium'>{sClass.status}</td>
                                     <td className='flex items-center gap-3'>
-                                        <button disabled={disable === sClass._id ? true : false} onClick={() => {handleApprove(sClass._id); setDisable(sClass._id)}} className="btn btn-success">Approve</button>
-                                        <button disabled={disable === sClass._id ? true : false} onClick={() => {handleDeny(sClass._id); setDisable(sClass._id)}} className="btn btn-warning">Deny</button>
+                                        <button disabled={disable === sClass._id ? true : false} onClick={() => {handleApprove(sClass._id); setDisable(sClass._id)}} className="formal-button">Approve</button>
+                                        <button disabled={disable === sClass._id ? true : false} onClick={() => {handleDeny(sClass._id); setDisable(sClass._id)}} className="danger-button">Deny</button>
                                         {/* <button onClick={() => handleDeny(sClass._id)} className="btn btn-warning">Deny</button> */}
-                                        <button className="btn" onClick={() => { setSelectedClassId(sClass._id); window.my_modal_2.showModal() }}>Feedback</button>
+                                        <button className="common-button" onClick={() => { setSelectedClassId(sClass._id); window.my_modal_2.showModal() }}>Feedback</button>
                                     </td>
                                 </tr>)
                             }

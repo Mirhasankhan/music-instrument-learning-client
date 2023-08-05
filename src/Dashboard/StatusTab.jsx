@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import  toast,{ Toaster } from 'react-hot-toast';
+import img from '../assets/guitar2.avif'
 
 const StatusTab = ({ status }) => {
     const classref = useRef()
@@ -53,18 +54,18 @@ const StatusTab = ({ status }) => {
                     <button>close</button>
                 </form>
             </dialog>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mb-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mb-4 mx-16'>
                 {
                     status.map(approved => <div
                         key={approved._id}
-                        className="card w-96 bg-purple-500 shadow-xl">
-                        <figure><img className='w-full h-64' src={approved.photo} alt="Shoes" /></figure>
-                        <div className="card-body flex flex-col">
-                            <h2 className="card-title text-white font-2xl">Classname: {approved.class}</h2>
-                            <p className='text-white'>Available Seats: <span className='text-orange-600 text-xl'>{approved.seats}</span></p>
-                            {approved.feedback && <p className='text-white font-xl text-xl'>Admin Feedback: {approved.feedback}</p>}
+                        className="card w-96 bg-white p-3 border flex flex-col">
+                        <figure><img className='w-full h-80 rounded-md' src={approved.photo} alt="Class Image" /></figure>
+                        <div className="flex flex-col mt-auto">
+                            <h2 className="card-title  font-2xl py-2">Classname: {approved.class}</h2>
+                            <p className=' pb-2'>Available Seats: <span className='text-orange-600 text-xl'>{approved.seats}</span></p>
+                            {approved.feedback && <p className=' font-xl text-xl'>Admin Feedback: {approved.feedback}</p>}
                             {/* <p>Total enrolled students </p> */}
-                            <button className="btn btn-secondary mt-auto" onClick={() => { setSelectedClassId(approved._id); window.my_modal_2.showModal() }}>Update Class</button>
+                            <button className="common-button mt-2" onClick={() => { setSelectedClassId(approved._id); window.my_modal_2.showModal() }}>Update Class</button>
                         </div>
                     </div>)
                 }

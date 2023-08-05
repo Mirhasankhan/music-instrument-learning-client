@@ -22,7 +22,7 @@ const PopularInstructors = () => {
         })
     }
     return (
-        <div className='my-8'>
+        <div className='my-8 mx-6'>
             <div className='w-1/2 mx-auto my-8 border-b-2 pb-3 text-center '>
                 <h1 className='animate__animated animate__backInRight  font-medium text-2xl md:text-3xl text-purple-600 '>Popular Instructors</h1>
                 <Fade delay={1e3} cascade damping={1e-1}>

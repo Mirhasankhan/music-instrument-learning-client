@@ -30,9 +30,9 @@ const MyClasses = () => {
             <div className='w-full'>
                 <Tabs>
                     <TabList className="bg-purple-600 w-full p-3 flex justify-between rounded-xl mb-3">
-                        <Tab className="bg-green-500 text-white p-2 rounded-md">Approved Classes</Tab>
-                        <Tab className="bg-red-500 text-white p-2 rounded-md">Denied Classes</Tab>
-                        <Tab className="bg-orange-500 text-white p-2 rounded-md">Pending Classes</Tab>
+                        <Tab className="common-button text-white p-2 rounded-md">Approved Classes</Tab>
+                        <Tab className="common-button text-white p-2 rounded-md">Denied Classes</Tab>
+                        <Tab className="common-button text-white p-2 rounded-md">Pending Classes</Tab>
                     </TabList>
 
                     <TabPanel>

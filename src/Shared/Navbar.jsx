@@ -22,10 +22,10 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-purple-500 items-center text-white">
+            <div className="navbar bg-purple-500 items-center text-white px-6">
                 <div className="flex-1">
                     <img className='rounded-full h-12 md:h-16' src={logo} alt="" />
-                    <h1 className="btn btn-ghost normal-case text-2xl text-white italic">TuneTutor</h1>
+                    <h1 className="btn btn-ghost normal-case text-2xl text-white">TuneTutor</h1>
                 </div>
                 <div className="hidden md:block flex-none items-center">
                     <ul className="menu menu-horizontal px-1 gap-6 items-center">
@@ -37,8 +37,8 @@ const Navbar = () => {
                         }
                         {
                             user?.email ? <><img className='h-12 rounded-full' src={user.photoURL} alt="" />
-                                <button onClick={handleLogout} className="btn btn-error text-white">Logout</button></>
-                                : <Link to="/login"><button className='btn btn-success text-white'>Login</button></Link>
+                                <button onClick={handleLogout} className="common-button text-white">Logout</button></>
+                                : <Link to="/login"><button className='common-button text-white'>Login</button></Link>
                         }
                         {
                             isDarkMode ? <div title='Switch To Light Mode'>
@@ -63,7 +63,7 @@ const Navbar = () => {
                                 }
                                 {
                                     user?.email ? <><img className='h-12 rounded-full' src={user.photoURL} alt="" />
-                                        <button onClick={handleLogout} className="btn btn-error text-white">Logout</button></>
+                                        <button onClick={handleLogout} className="common-button text-white">Logout</button></>
                                         : <Link to="/login"><button className='btn btn-success text-white'>Login</button></Link>
                                 }
                                 <div>

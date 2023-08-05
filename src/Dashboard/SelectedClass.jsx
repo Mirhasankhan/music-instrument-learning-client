@@ -29,6 +29,7 @@ const SelectedClass = () => {
                 })
             })
     }
+    console.log(selectedClass);
     const totalPrice = selectedClass.reduce((sum, price)=> price.price + sum,0)  
     return (
         <div className='px-6'>
@@ -46,6 +47,7 @@ const SelectedClass = () => {
                                     <thead>
                                         <tr className='bg-purple-600 text-white font-medium'>
                                             <th>Class Name</th>
+                                            <th>Instructor Email</th>
                                             <th>Instructor Name</th>
                                             <th>Price</th>
                                             <th>Delete Class</th>
@@ -55,10 +57,11 @@ const SelectedClass = () => {
                                         {
                                             selectedClass.map(select => <tr key={select._id}>
                                                 <td>{select.class}</td>
+                                                <td>{select.email}</td>
                                                 <td>{select.sellerName}</td>
                                                 <td>${select.price}</td>
                                                 <td>
-                                                    <div onClick={() => handleDeleteClass(select._id)} className="btn btn-error">Delete</div>
+                                                    <div onClick={() => handleDeleteClass(select._id)} className="common-button text-center">Delete</div>
                                                 </td>
                                             </tr>)
                                         }

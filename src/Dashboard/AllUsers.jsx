@@ -15,7 +15,7 @@ const AllUsers = () => {
             method: 'PATCH'
         })
             .then(res => res.json())
-            .then(data => {               
+            .then(data => {
                 if (data.modifiedCount) {
                     toast.success('User listed as instructor', {
                         position: 'top-right',
@@ -32,7 +32,7 @@ const AllUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                
+
                 if (data.modifiedCount) {
                     toast.success('User listed as admin', {
                         position: 'top-right',
@@ -41,8 +41,7 @@ const AllUsers = () => {
                 }
             })
     }
-    
-
+  
     return (
         <div className='md:px-6'>
             <Helmet>
@@ -51,12 +50,13 @@ const AllUsers = () => {
             <h1 className='animate__animated animate__backInRight text-center font-medium text-2xl md:text-3xl text-purple-600 my-8 border-b-2 pb-3'>All Users List</h1>
             <div className='w-full '>
                 <div className="overflow-x-auto">
-                    <table className="table">
-                        <thead className='bg-purple-400 text-white'>
+                    <table className="table table-zebra">
+                        <thead className='bg-purple-400 text-white text-[14px]'>
                             <tr>
                                 <th>SL</th>
                                 <th>User Name</th>
                                 <th>Email</th>
+                                <th>Current Role</th>
                                 <th>Manage Role</th>
                             </tr>
                         </thead>
@@ -68,9 +68,10 @@ const AllUsers = () => {
                                     <th>{index + 1}</th>
                                     <td>{user?.name}</td>
                                     <td>{user?.email}</td>
+                                    <td>{user?.role || 'User'}</td>
                                     <td>
-                                        <button disabled={user._id == isDisabled ? true : false} onClick={() => {handleMakeInstructor(user?._id); setDisabled(user._id)}} className="btn btn-outline btn-info mr-2">Make Instructor</button>
-                                        <button disabled={user._id == adminDisable ? true : false} onClick={() => {handleMakeAdmin(user?._id); setAdminDisable(user._id)}} className="btn btn-outline btn-success">Make Admin</button>
+                                        <button disabled={user._id == isDisabled ? true : false} onClick={() => { handleMakeInstructor(user?._id); setDisabled(user._id) }} className="btn btn-outline btn-info mr-2">Make Instructor</button>
+                                        <button disabled={user._id == adminDisable ? true : false} onClick={() => { handleMakeAdmin(user?._id); setAdminDisable(user._id) }} className="btn btn-outline btn-success">Make Admin</button>
                                         {/* <button onClick={() => handleMakeAdmin(user?._id)} className="btn btn-outline btn-success">Make Admin</button> */}
                                     </td>
                                 </tr>)

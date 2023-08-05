@@ -42,7 +42,7 @@ const Banner = () => {
                     <img className='w-full h-84 md:h-[550px]' src={banner3} alt="" />
                     <div className='absolute left-24 md:left-48 top-16 md:top-32'>
                         <h1 className='text-red-600 text-3xl md:text-7xl font-semibold'>Learn Music For Fun <br /> With Our Instructors</h1>
-                      <Link>  <button className='btn btn-primary text-red-500 mt-6'>Contact Us</button></Link>
+                      <Link>  <button className='common-button mt-6'>Contact Us</button></Link>
                     </div>
                 </SwiperSlide>               
                 ...

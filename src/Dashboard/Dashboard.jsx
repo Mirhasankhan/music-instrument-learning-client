@@ -21,58 +21,69 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     {
-                        addmin && <ul className="menu p-4 w-80 h-full bg-purple-600 text-base-content">
-                            <Link to="/dashboard/adminHome" className='flex items-center bg-green-400 p-3 rounded-md mb-3'>
-                                <FaHome className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>Home</p>
+                        addmin && <ul className="menu p-4 w-64 h-full bg-black text-white">
+                            <img className='h-24 w-24 rounded-full mx-auto my-3' src={user?.photoURL} alt="" />
+                            <h1 className='py-3 text-center'>{user?.email}</h1>
+                            <Link to="/dashboard/adminHome" className='flex items-center p-3  mb-3'>
+                                <FaHome className='text-[16px] mr-2' />
+                                <p className='text-[16px] font-medium'>Home</p>
                             </Link>
-                            <Link to="/dashboard/allUsers" className='flex items-center bg-green-400 p-3 rounded-md mb-3'>
-                                <FaUserPlus className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>All Users</p>
+                            <Link to="/dashboard/allUsers" className='flex items-center p-3 mb-3'>
+                                <FaUserPlus className='text-[16px] mr-2' />
+                                <p className='text-[16px] font-medium'>All Users</p>
                             </Link>
-                            <Link to="/dashboard/manageClass" className='flex items-center bg-green-400 p-3 rounded-md mb-3'>
-                                <FaFileContract className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>Manage Class</p>
+                            <Link to="/dashboard/manageClass" className='flex items-center p-3 mb-3'>
+                                <FaFileContract className='text-[16px] mr-2' />
+                                <p className='text-[16px] font-medium'>Manage Class</p>
                             </Link>
+                           <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>
                     }
                     {
-                        instrucor && <ul className="menu p-4 w-80 h-full bg-orange-400 text-base-content">
+                        instrucor && <ul className="menu p-4 w-64 h-full bg-black text-white">
                             <img className='h-24 w-24 rounded-full mx-auto my-3' src={user?.photoURL} alt="" />
-                            <button className='btn btn-success text-white'>Update Profile</button>
+                            <h1 className='py-3 text-center'>{user?.email}</h1>
+                            <button className='common-button text-white'>Update Profile</button>
                             <div className="divider"></div>
-                            <Link to="/dashboard/instructorHome" className='flex items-center bg-purple-400 p-3 rounded-md mb-3'>
-                                <FaHome className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>Home</p>
+                            <Link to="/dashboard/instructorHome" className='flex items-center p-3'>
+                                <FaHome className='text-[16px] mr-2' />
+                                <p className='text-white text-[16px] font-medium'>Home</p>
                             </Link>
-                            <Link to="/dashboard/addClass" className='flex items-center bg-purple-400 p-3 rounded-md mb-3'>
-                                <FaRegPlusSquare className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>Add Class</p>
+                            <Link to="/dashboard/addClass" className='flex items-center p-3'>
+                                <FaRegPlusSquare className='text-[16px] mr-2' />
+                                <p className='text-white text-[16px] font-medium'>Add Class</p>
                             </Link>
-                            <Link to="/dashboard/myClasses" className='flex items-center bg-purple-400 p-3 rounded-md mb-3'>
-                                <FaFileContract className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>My Classes</p>
+                            <Link to="/dashboard/myClasses" className='flex items-center p-3 mb-3'>
+                                <FaFileContract className='text-[16px] mr-2' />
+                                <p className='text-white text-[16px] font-medium'>My Classes</p>
                             </Link>
+                            <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>
                     }
                     {
                         isStudent &&
-                        <ul className="menu p-4 w-80 h-full bg-orange-400 text-base-content">
-                            <img className='h-24 w-24 rounded-full mx-auto my-3' src={user.photoURL} alt="" />
-                            <button className='btn btn-success text-white'>Update Profile</button>
+                        <ul className="menu p-4 w-64 h-full bg-black text-white font-semibold">
+                            <img className='h-24 w-24 rounded-full mx-auto my-3' src={user?.photoURL} alt="" />
+                            <h1 className='text-[16px] my-2 text-center'>{user?.email}</h1>
+                            <button className='common-button text-white'>Update Profile</button>
                             <div className="divider"></div>
-                            <Link to="/dashboard/studentHome" className='flex items-center bg-purple-400 p-3 rounded-md mb-3'>
-                                <FaHome className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>Home</p>
+                            <Link to="/dashboard/studentHome" className='flex items-center p-3 mb-3'>
+                                <FaHome className='text-[16px] mr-2' />
+                                <p className='text-white text-[16px] font-medium'>Student Home</p>
                             </Link>
-                            <Link to="/dashboard/selected" className='flex items-center bg-purple-400 p-3 rounded-md mb-3'>
-                                <FaRegPlusSquare className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>Selected Classes</p>
+                            <Link to="/dashboard/selected" className='flex items-center p-3 mb-3'>
+                                <FaRegPlusSquare className='text-[16px] mr-2' />
+                                <p className='text-white text-[16px] font-medium'>Selected Classes</p>
                             </Link>
-                            <Link to="/dashboard/enrolled" className='flex items-center bg-purple-400 p-3 rounded-md mb-3'>
-                                <FaFileContract className='text-xl mr-2' />
-                                <p className='text-white text-xl font-medium'>Enrolled Classes</p>
+                            <Link to="/dashboard/enrolled" className='flex items-center p-3 mb-3'>
+                                <FaFileContract className='text-[16px] mr-2' />
+                                <p className='text-white text-[16px] font-medium'>Enrolled Classes</p>
                             </Link>
+                            <Link to="/dashboard/enrolled" className='flex items-center p-3 mb-3'>
+                                <FaFileContract className='text-[16px] mr-2' />
+                                <p className='text-white text-[16px] font-medium'>Payment History</p>
+                            </Link>
+                            <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>
                     }
                 </div>
