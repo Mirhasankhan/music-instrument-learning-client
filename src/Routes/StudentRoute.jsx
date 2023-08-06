@@ -9,7 +9,7 @@ const StudentRoute = ({ children }) => {
     else if (isStudent) {
         return children
     }
-    else if(addmin,instrucor){
+    else if(addmin || instrucor){
         return <Navigate to="/"></Navigate>
     }
    

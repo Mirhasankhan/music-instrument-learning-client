@@ -57,19 +57,19 @@ const Login = () => {
     }
     return (
         <div className='py-10'>
-            <div className='md:w-1/3 w-2/3 mx-auto bg-white rounded-lg p-3 border-2'>
+            <div className='md:w-1/3 mx-3 md:mx-auto bg-white rounded-lg p-3 border-2'>
                 <h1 className='font-semibold text-2xl text-center'>Login To Tune<span className='text-sky-400'>Tutor</span></h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-medium text-gray-500">Email</span>
+                            <span className="label-text font-semibold text-gray-500">Email</span>
                         </label>
                         <input {...register("email", { required: true })} type="email" placeholder="Type Your Email" className="input-style" />
                         {errors.email && <span className="text-red-600">Email is required</span>}
                     </div>
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text font-medium text-gray-500">Password</span>
+                            <span className="label-text font-semibold text-gray-500">Password</span>
                         </label>
                         <input {...register("password", { required: true })} type={show ? "password" : "text"} placeholder="Type Your Password" className="input-style" />
                         {errors.password && <span className="text-red-600">Password is required</span>}
