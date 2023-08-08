@@ -10,13 +10,13 @@ const ManageClasses = () => {
     const { data: classes = [], refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/classes')
+            const res = await fetch('https://music-instrument-learning-server-seven.vercel.app/classes')
             return res.json()
         }
     })
 
     const handleApprove = (id) => {
-        fetch(`http://localhost:5000/classes/${id}`, {
+        fetch(`https://music-instrument-learning-server-seven.vercel.app/classes/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -32,7 +32,7 @@ const ManageClasses = () => {
     }
 
     const handleDeny = (id) => {
-        fetch(`http://localhost:5000/class/denied/${id}`, {
+        fetch(`https://music-instrument-learning-server-seven.vercel.app/class/denied/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -49,7 +49,7 @@ const ManageClasses = () => {
     const handleFeedback = (id) => {
         const text = textref.current.value;
         const results = { feedback: text }
-        fetch(`http://localhost:5000/class/${id}`, {
+        fetch(`https://music-instrument-learning-server-seven.vercel.app/class/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

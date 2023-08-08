@@ -6,7 +6,7 @@ const Instructors = () => {
     const { data: allInstructors = [] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users?role=instructor`)
+            const res = await fetch(`https://music-instrument-learning-server-seven.vercel.app/users?role=instructor`)
             return res.json()
         }
 

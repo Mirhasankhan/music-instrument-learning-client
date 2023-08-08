@@ -14,7 +14,7 @@ const PayOut = ({ selectedClass }) => {
     const [tId, setTId] = useState('')
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://music-instrument-learning-server-seven.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +79,7 @@ const PayOut = ({ selectedClass }) => {
                 sellerName: sellerName,
                 classId: _id
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://music-instrument-learning-server-seven.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

@@ -9,7 +9,7 @@ const InstructorHome = () => {
     const { data: myClass = [] } = useQuery({
         queryKey: ['myClass', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myClasses?email=${user?.email}`)
+            const res = await fetch(`https://music-instrument-learning-server-seven.vercel.app/myClasses?email=${user?.email}`)
             return res.json()
         }
     })

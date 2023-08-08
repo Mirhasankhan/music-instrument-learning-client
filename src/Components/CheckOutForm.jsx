@@ -13,7 +13,7 @@
 //     const [tId, setTId] = useState('')
 
 //     useEffect(()=>{
-//         fetch('http://localhost:5000/create-payment-intent',{
+//         fetch('https://music-instrument-learning-server-seven.vercel.app/create-payment-intent',{
 //             method: 'POST',
 //             headers: {
 //                 'content-type': 'application/json'
@@ -69,7 +69,7 @@
 //         if(paymentIntent.status === "succeeded"){
 //             setTId(paymentIntent.id)
 //             const payment = {email: user?.email, transactionId: paymentIntent.id, price, date: new Date()}
-//             fetch('http://localhost:5000/payments',{
+//             fetch('https://music-instrument-learning-server-seven.vercel.app/payments',{
 //                 method: 'POST',
 //                 headers: {
 //                     'content-type': 'application/json'

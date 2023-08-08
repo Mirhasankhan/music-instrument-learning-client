@@ -10,14 +10,14 @@ const SelectedClass = () => {
     const { data: selectedClass = [], refetch } = useQuery({
         queryKey: ['selected', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/selected?email=${user?.email}`)
+            const res = await fetch(`https://music-instrument-learning-server-seven.vercel.app/selected?email=${user?.email}`)
             return res.json()
         }
         
     })
 
     const handleDeleteClass = (id) => {
-        fetch(`http://localhost:5000/selected/${id}`, {
+        fetch(`https://music-instrument-learning-server-seven.vercel.app/selected/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
