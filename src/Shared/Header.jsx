@@ -32,16 +32,16 @@ const Header = () => {
                         <Link to="/"><h1 className='font-semibold text-3xl'>Tune<span className='text-sky-400'>Tutor</span></h1></Link>
                     </div>
                     <div className="md:flex hidden">
-                        <ul className="menu menu-horizontal px-1 items-center font-semibold gap-5 text-xl text-sky-500">
+                        <ul className="menu menu-horizontal px-1 items-center font-semibold gap-5 text-xl text-white">
                             <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/">Home</NavLink>
                             <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/instructors">Instructors</NavLink>
                             <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/classes">Classes</NavLink>
                             {
                                 user?.email && <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to={addmin ? '/dashboard/adminHome' : instrucor ? '/dashboard/instructorHome' : '/dashboard/studentHome'}>Dashboard</NavLink>
                             }
-
+                            
                             {
-                                user?.email ? <FaUserAlt onClick={() => setDetail(!detail)} className='text-black cursor-pointer' /> : <NavLink to="/login"><button className='common-button'>Login</button></NavLink>
+                                user?.email ? <img onClick={() => setDetail(!detail)} className='rounded-full h-16 md:h-10 w-10 text-black cursor-pointer' src={user?.photoURL} alt="" /> : <NavLink to="/login"><button className='common-button'>Login</button></NavLink>
                             }
                         </ul>
                     </div>
@@ -60,7 +60,7 @@ const Header = () => {
                                     }
 
                                     {
-                                        user?.email ? <FaUserAlt onClick={() => setDetail(!detail)} className='text-white text-2xl cursor-pointer' /> : <NavLink to="/login"><button className='main-button'>Login</button></NavLink>
+                                        user?.email ? <FaUserAlt onClick={() => setDetail(!detail)} className='text-white text-2xl cursor-pointer' /> : <NavLink to="/login"><button className='formal-button'>Login</button></NavLink>
                                     }
                                 </ul>
                             </div>

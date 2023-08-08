@@ -1,13 +1,19 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
-import CheckOutForm from '../Components/CheckOutForm';
+// import CheckOutForm from '../Components/CheckOutForm';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import { useLocation } from 'react-router-dom';
+import PayOut from '../Components/PayOut';
 
 const striprePromise = loadStripe(import.meta.env.VITE_Stripe_Gateway_PK)
 
 const Payment = () => {
-    const total = 500;
+    const location = useLocation()
+    // const netPrice = location.state.select.price; 
+    const selectedClass = location.state.select
+    console.log(selectedClass);
+    
     return (
         <div className='px-8'>
             <div className='w-1/2 mx-auto my-8 border-b-2 pb-3 text-center '>
@@ -17,7 +23,8 @@ const Payment = () => {
                 </Fade>
             </div>
             <Elements stripe={striprePromise}>
-                <CheckOutForm price={total}></CheckOutForm>
+                <PayOut selectedClass={selectedClass}></PayOut>
+                {/* <CheckOutForm price={netPrice}></CheckOutForm> */}
             </Elements>
 
         </div>

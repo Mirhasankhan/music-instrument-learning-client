@@ -29,7 +29,7 @@ const SelectedClass = () => {
                 })
             })
     }
-    console.log(selectedClass);
+   
     const totalPrice = selectedClass.reduce((sum, price)=> price.price + sum,0)  
     return (
         <div className='px-6'>
@@ -50,6 +50,7 @@ const SelectedClass = () => {
                                             <th>Instructor Email</th>
                                             <th>Instructor Name</th>
                                             <th>Price</th>
+                                            <th>Pay</th>
                                             <th>Delete Class</th>
                                         </tr>
                                     </thead>
@@ -60,6 +61,7 @@ const SelectedClass = () => {
                                                 <td>{select.email}</td>
                                                 <td>{select.sellerName}</td>
                                                 <td>${select.price}</td>
+                                                <td><Link to={`/dashboard/payment/${select._id}`} state={{select: select}}> <button  className={`danger-button text-white `}>Pay</button></Link></td>
                                                 <td>
                                                     <div onClick={() => handleDeleteClass(select._id)} className="common-button text-center">Delete</div>
                                                 </td>
@@ -73,7 +75,7 @@ const SelectedClass = () => {
                     }
                 </div>
                 {/* ${selectedClass.length < 1 ? 'hidden': 'block'}` */}
-               <Link to="/dashboard/payment"> <button  className={`btn btn-warning mt-3 px-12 text-white `}>Pay</button></Link>
+               {/* <Link to="/dashboard/payment"> <button  className={`btn btn-warning mt-3 px-12 text-white `}>Pay</button></Link> */}
             </div>
         </div>
     );

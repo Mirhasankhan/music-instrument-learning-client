@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
-import { Link, json } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
 import SocialLogin from '../../Components/SocialLogin';
 
+const token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN
 
 const Register = () => {
+    const image_hosting_URL = `https://api.imgbb.com/1/upload?key=${token}`
     const { createUser, updateUserProfile } = useAuth()
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
@@ -31,7 +33,7 @@ const Register = () => {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json',
-                                },                                
+                                },
                                 body: JSON.stringify(insertUser)
                             })
                                 .then(res => res.json())
@@ -54,10 +56,11 @@ const Register = () => {
                 })
         }
     };
+
     return (
         <div className='py-10 bg-gray-500'>
             <div className='md:w-2/5 w-2/3 mx-auto bg-white rounded-lg p-3'>
-            <h1 className='font-semibold text-2xl text-center'>Create your Tune<span className='text-sky-400'>Tutor</span> Account</h1>
+                <h1 className='font-semibold text-2xl text-center'>Create your Tune<span className='text-sky-400'>Tutor</span> Account</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
@@ -100,6 +103,7 @@ const Register = () => {
                         </label>
                         <input {...register("photo", { required: true })} type="url" placeholder="upload photo url" className="input-style" />
                         {errors.photo && <span className="text-red-600">Photo is required</span>}
+                        
                     </div>
                     <div className="form-control mt-6">
                         <input className="login-btn" type="submit" value="Sign Up" />
