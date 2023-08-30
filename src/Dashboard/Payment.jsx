@@ -9,8 +9,7 @@ import PayOut from '../Components/PayOut';
 const striprePromise = loadStripe(import.meta.env.VITE_Stripe_Gateway_PK)
 
 const Payment = () => {
-    const location = useLocation()
-    // const netPrice = location.state.select.price; 
+    const location = useLocation()   
     const selectedClass = location.state.select
     console.log(selectedClass);
     

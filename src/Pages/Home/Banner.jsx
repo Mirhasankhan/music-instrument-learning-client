@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import banner1 from '../../assets/guitar.avif'
+import banner1 from '../../assets/musics.avif'
 import banner2 from '../../assets/harmoni.webp'
 import banner3 from '../../assets/piano.webp'
 import { Link } from 'react-router-dom';

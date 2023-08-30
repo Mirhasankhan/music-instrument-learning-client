@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect } from "react";
 import { useState } from "react";
 import useAuth from '../Hooks/useAuth'
+import './CheckOutForm.css'
 
 const PayOut = ({ selectedClass }) => {
     const { class: className, email, _id, price, sellerEmail, sellerName } = selectedClass
@@ -24,7 +25,7 @@ const PayOut = ({ selectedClass }) => {
             .then(res => res.json())
             .then(data => {
                 setClientSecret(data.clientSecret)
-            })
+            })           
     }, [])
 
     const handleSubmit = async (e) => {
@@ -66,7 +67,7 @@ const PayOut = ({ selectedClass }) => {
         if (payError) {
             console.log(payError);
         }
-        setProcessing(false)
+        setProcessing(false)       
         if (paymentIntent.status === "succeeded") {
             setTId(paymentIntent.id)
             const payment = {

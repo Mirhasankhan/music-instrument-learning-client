@@ -58,8 +58,8 @@ const Register = () => {
     };
 
     return (
-        <div className='py-10 bg-gray-500'>
-            <div className='md:w-2/5 w-2/3 mx-auto bg-white rounded-lg p-3'>
+        <div className='py-10'>
+            <div className='md:w-2/5 w-2/3 mx-auto bg-white rounded-lg p-3 border-2'>
                 <h1 className='font-semibold text-2xl text-center'>Create your Tune<span className='text-sky-400'>Tutor</span> Account</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">

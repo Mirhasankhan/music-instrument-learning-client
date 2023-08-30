@@ -62,26 +62,26 @@ const Dashboard = () => {
                     }
                     {
                         isStudent &&
-                        <ul className="menu p-4 w-64 h-full bg-black text-white font-semibold">
+                        <ul className="menu p-4 w-64 h-full bg-slate-200 font-semibold">
                             <img className='h-24 w-24 rounded-full mx-auto my-3' src={user?.photoURL} alt="" />
                             <h1 className='text-[16px] my-2 text-center'>{user?.email}</h1>
                             <button className='common-button text-white'>Update Profile</button>
                             <div className="divider"></div>
                             <Link to="/dashboard/studentHome" className='flex items-center p-3 mb-3'>
                                 <FaHome className='text-[16px] mr-2' />
-                                <p className='text-white text-[16px] font-medium'>Student Home</p>
+                                <p className='text-[16px] font-medium'>Student Home</p>
                             </Link>
                             <Link to="/dashboard/selected" className='flex items-center p-3 mb-3'>
                                 <FaRegPlusSquare className='text-[16px] mr-2' />
-                                <p className='text-white text-[16px] font-medium'>Selected Classes</p>
+                                <p className='text-[16px] font-medium'>Selected Classes</p>
                             </Link>
                             <Link to="/dashboard/enrolled" className='flex items-center p-3 mb-3'>
                                 <FaFileContract className='text-[16px] mr-2' />
-                                <p className='text-white text-[16px] font-medium'>Enrolled Classes</p>
+                                <p className='text-[16px] font-medium'>Enrolled Classes</p>
                             </Link>
                             <Link to="/dashboard/enrolled" className='flex items-center p-3 mb-3'>
                                 <FaFileContract className='text-[16px] mr-2' />
-                                <p className='text-white text-[16px] font-medium'>Payment History</p>
+                                <p className='text-[16px] font-medium'>Payment History</p>
                             </Link>
                             <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>

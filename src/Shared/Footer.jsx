@@ -1,49 +1,184 @@
-import React from 'react';
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import logo from '../assets/tutorlogo.jpg'
-import { Link } from 'react-router-dom';
-import { FaFacebook, FaYoutube, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 footer p-10 bg-[#111723] text-base-content">
-                <div className='text-white'>
-                    <div className='flex items-center'>
-                        <img className='rounded-full h-12 md:h-16' src={logo} alt="" />
-                        <h1 className='italic text-xl md:text-3xl font-semibold ml-2'>TuneTutor</h1>
+        // footer section start
+        <div className="bg-slate-200 sm:pt-8 lg:pt-16">
+            <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
+                    <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8 space-y-3">
+                        <img
+                            className="w-16 h-16 rounded-full cursor-pointer"
+                            src={logo}
+                            alt=""
+                        />
+                        <h3 className="font-semibold text-2xl">TuneTutor</h3>
+                        <p className="text-base leading-relaxed text-gray-600 py2">
+                        Tune Tutor is your final destination for learning music instruments. We have some amazing instructors with long time experience. If you are intructor you can earn money safely from our site.
+                        </p>
+                        <h3 className="text-2xl font-semibold">Follow Us</h3>
+                        <ul className="flex items-center space-x-3 mt-9">
+                            <li>
+                                <a
+                                    href="https://www.facebook.com/mir.hasan.794/"
+                                    target="_blank"
+                                    className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-[#024E92] focus:bg-[#024E92]"
+                                >
+                                    <FaFacebook></FaFacebook>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href=""
+                                    target="_blank"
+                                    className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-[#024E92] focus:bg-[#024E92]"
+                                >
+                                    <FaInstagram />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/mir-hasan-575b401b9/"
+                                    target="_blank"
+                                    className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-[#024E92] focus:bg-[#024E92]"
+                                >
+                                    <FaLinkedin />
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <h1>Tune Tutor is your final destination for learning music instruments. We have some amazing instructors with long time experience. If you are intructor you can earn money safely from our site.</h1>
-                </div>
-                <div>
-                    <span className="text-white text-xl">Contact Info</span>
-                    <h3 className="text-gray-400">Address:</h3>
-                    <p className="text-white">Lotif Tower, Trunk Road, Feni Bangladesh</p>
-                    <h3 className="text-gray-400">Phone:</h3>
-                    <p className="text-white">+96877450240</p>
-                    <h3 className="text-gray-400">Email:</h3>
-                    <p className="text-white">Example@gmail.com</p>
-                   
-                </div>
-                <div className='text-white'>
-                    <span className="text-xl">My Account</span>
-                    <Link to="login">Login</Link>
-                    <Link to="">Order History</Link>
-                    <Link to="">My Wishlist</Link>
-                </div>
-            </footer>
-            <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
-                <div className="items-center grid-flow-col">
-                    <p>Copyright © 2023 - All right reserved</p>
-                </div>
-                <div className="md:place-self-center md:justify-self-end">
-                    <div className="grid grid-flow-col gap-4">
-                        <FaFacebook className='text-3xl'></FaFacebook>
-                        <FaYoutube className='text-3xl'></FaYoutube>
-                        <FaTwitter className='text-3xl'></FaTwitter>
+
+                    <div>
+                        <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+                            Company
+                        </p>
+
+                        <ul className="mt-6 space-y-3">
+                            <li>
+                                <a
+                                    href="#"
+                                    title=""
+                                    className="flex text-base text-black transition-all duration-200 hover:text-[#024E92] focus:text-[#024E92]"
+                                >
+                                    Home
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#"
+                                    title=""
+                                    className="flex text-base text-black transition-all duration-200 hover:text-[#024E92] focus:text-[#024E92]"
+                                >
+                                    About
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#"
+                                    title=""
+                                    className="flex text-base text-black transition-all duration-200 hover:text-[#024E92] focus:text-[#024E92]"
+                                >
+                                    My Shippings
+                                </a>
+                            </li>                            
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+                            Help
+                        </p>
+
+                        <ul className="mt-6 space-y-4">
+                            <li>
+                                <a
+                                    href="#"
+                                    title=""
+                                    className="flex text-base text-black transition-all duration-200 hover:text-[#024E92] focus:text-[#024E92]"
+                                >
+                                    Customer Support
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#"
+                                    title=""
+                                    className="flex text-base text-black transition-all duration-200 hover:text-[#024E92] focus:text-[#024E92]"
+                                >
+                                    Delivery Details
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#"
+                                    title=""
+                                    className="flex text-base text-black transition-all duration-200 hover:text-[#024E92] focus:text-[#024E92]"
+                                >
+                                    Terms & Conditions
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#"
+                                    title=""
+                                    className="flex text-base text-black transition-all duration-200 hover:text-[#024E92] focus:text-[#024E92]"
+                                >
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8 space-y-4">
+                        <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+                            Subscribe to newsletter
+                        </p>
+                        <div>
+                            <label htmlFor="email" className="sr-only">
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                className="block w-full py-2 px-5 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-full focus:outline-none focus:border-[#024E92] caret-[#024E92]"
+                            />
+                        </div>
+                        <button className="inline-flex items-center justify-center px-8 py-2 mt-3 font-semibold text-white transition-all duration-200 bg-[#024E92] rounded-full hover:bg-blue-700 focus:bg-blue-700">
+                            Subscribe
+                        </button>
+                        <div>
+                            <p className="font-semibold">Address</p>
+                            44, Purana Paltan, Dhaka-1000
+                            <br />
+                            <span className="font-semibold">Email:</span>
+                            <span href="#" className="text-blue-700">
+                                {" "}
+                                <a href="">TuneTutor@gmail.Com</a>
+                            </span>
+                            <br />
+                            <span className="font-semibold">Helpline:</span>{" "}
+                            <span>+880-1839033505</span>
+                        </div>
                     </div>
                 </div>
-            </footer>
+
+                <hr className="mt-8 mb-6 border-gray-200" />
+                <p className="text-sm text-center text-gray-600 py-3">
+                    © Copyright 2023, All Rights Reserved by ShipSwiftly
+                </p>
+            </div>
         </div>
+        // footer section end
     );
 };
 

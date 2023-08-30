@@ -24,7 +24,7 @@ const Header = () => {
             .catch(() => { })
     }
     return (
-        <div className='relative bg-green-700'>
+        <div className='fixed z-10 bg-opacity-40 bg-black w-full'>
             <div>
                 <div className="navbar md:px-12">
                     <div className="flex-1">
