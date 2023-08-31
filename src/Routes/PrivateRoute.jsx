@@ -1,11 +1,13 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
+import Lottie from "lottie-react";
+import spinner from '../assets/animation_llxinh3q.json'
 
 const PrivateRoute = ({children}) => {
     const {user, loading} = useAuth()
     const location = useLocation()
     if(loading){
-        return <progress className="progress w-56"></progress>
+        return <div className='flex justify-center items-center'><Lottie style={{ height: '400px', width: '600px' }} animationData={spinner} loop={true} /> </div>
     }
 
     if(user){

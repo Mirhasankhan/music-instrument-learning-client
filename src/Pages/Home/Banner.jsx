@@ -27,7 +27,7 @@ const Banner = () => {
                 <SwiperSlide className='relative'>
                     <img className='w-full h-84 md:h-[550px]' src={banner1} alt="" />
                     <div className='absolute left-24 md:left-48 top-16 md:top-32'>
-                        <h1 className='animate__animated animate__backInDown text-white text-3xl md:text-7xl font-semibold'>Grow your skills <br /> with Tunetutor Academy</h1>
+                        <h1 className='animate__animated animate__backInDown text-yellow-500 text-3xl md:text-7xl font-semibold'>Grow your skills <br /> with Tunetutor Academy</h1>
                       <Link to="/register">  <button className='btn btn-outline btn-warning mt-6'>Register Now</button></Link>
                     </div>
                 </SwiperSlide>

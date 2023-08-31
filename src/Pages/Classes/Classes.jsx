@@ -54,12 +54,12 @@ const Classes = () => {
     }
 
     return (
-        <div className='md:mx-12'>
+        <div className='md:mx-12 pt-16'>
             <Helmet>
                 <title>TuneTutor | Classes</title>
             </Helmet>
             <div>
-                <div className='w-1/2 mx-auto my-8 border-b-2 pb-3 text-center '>
+                <div className='w-1/2 mx-auto my-8 border-b-4 border-green-500 pb-3 text-center '>
                     <h1 className='animate__animated animate__backInRight  font-medium text-2xl md:text-3xl text-purple-600 '>Our Classes Approved By Admin!!</h1>
                     <Fade delay={1e3} cascade damping={1e-1}>
                         Select Your Favourite Class

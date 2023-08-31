@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import useUserrole from '../Hooks/useUserrole';
 import { FaHome, FaUserPlus, FaFileContract, FaRegPlusSquare } from 'react-icons/fa';
 import useAuth from '../Hooks/useAuth';
@@ -26,15 +26,15 @@ const Dashboard = () => {
                             <h1 className='py-3 text-center'>{user?.email}</h1>
                             <Link to="/dashboard/adminHome" className='flex items-center p-3  mb-3'>
                                 <FaHome className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-medium'>Home</p>
+                                <p className='text-[16px] font-semibold'>Home</p>
                             </Link>
                             <Link to="/dashboard/allUsers" className='flex items-center p-3 mb-3'>
                                 <FaUserPlus className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-medium'>All Users</p>
+                                <p className='text-[16px] font-semibold'>All Users</p>
                             </Link>
                             <Link to="/dashboard/manageClass" className='flex items-center p-3 mb-3'>
                                 <FaFileContract className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-medium'>Manage Class</p>
+                                <p className='text-[16px] font-semibold'>Manage Class</p>
                             </Link>
                            <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>
@@ -44,18 +44,18 @@ const Dashboard = () => {
                             <img className='h-24 w-24 rounded-full mx-auto my-3' src={user?.photoURL} alt="" />
                             <h1 className='py-3 text-center'>{user?.email}</h1>
                             <button className='common-button text-white'>Update Profile</button>
-                            <div className="divider"></div>
+                            <div className="divider"></div>                       
                             <Link to="/dashboard/instructorHome" className='flex items-center p-3'>
                                 <FaHome className='text-[16px] mr-2' />
-                                <p className='text-white text-[16px] font-medium'>Home</p>
+                                <p className='text-white text-[16px] font-semibold'>Home</p>
                             </Link>
                             <Link to="/dashboard/addClass" className='flex items-center p-3'>
                                 <FaRegPlusSquare className='text-[16px] mr-2' />
-                                <p className='text-white text-[16px] font-medium'>Add Class</p>
+                                <p className='text-white text-[16px] font-semibold'>Add Class</p>
                             </Link>
                             <Link to="/dashboard/myClasses" className='flex items-center p-3 mb-3'>
                                 <FaFileContract className='text-[16px] mr-2' />
-                                <p className='text-white text-[16px] font-medium'>My Classes</p>
+                                <p className='text-white text-[16px] font-semibold'>My Classes</p>
                             </Link>
                             <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>
@@ -67,22 +67,26 @@ const Dashboard = () => {
                             <h1 className='text-[16px] my-2 text-center'>{user?.email}</h1>
                             <button className='common-button text-white'>Update Profile</button>
                             <div className="divider"></div>
-                            <Link to="/dashboard/studentHome" className='flex items-center p-3 mb-3'>
+                            {/* <Link to="/dashboard/studentHome" className='flex items-center p-3 mb-3'>
                                 <FaHome className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-medium'>Student Home</p>
-                            </Link>
-                            <Link to="/dashboard/selected" className='flex items-center p-3 mb-3'>
+                                <p className='text-[16px] font-semibold'>Student Home</p>
+                            </Link> */}
+                            <NavLink to="/dashboard/studentHome" className={({ isActive }) => `${isActive ? "text-sky-400" : ""} flex items-center p-3 mb-3`}>
+                                <FaHome className='text-[16px] mr-2' />
+                                <p className='text-[16px] font-semibold'>Student Home</p>
+                            </NavLink>
+                            <NavLink to="/dashboard/selected" className={({ isActive }) => `${isActive ? "text-sky-400" : ""} flex items-center p-3 mb-3`}>
                                 <FaRegPlusSquare className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-medium'>Selected Classes</p>
-                            </Link>
-                            <Link to="/dashboard/enrolled" className='flex items-center p-3 mb-3'>
+                                <p className='text-[16px] font-semibold'>Selected Classes</p>
+                            </NavLink>
+                            <NavLink to="/dashboard/enrolled" className={({ isActive }) => `${isActive ? "text-sky-400" : ""} flex items-center p-3 mb-3`}>
                                 <FaFileContract className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-medium'>Enrolled Classes</p>
-                            </Link>
-                            <Link to="/dashboard/enrolled" className='flex items-center p-3 mb-3'>
+                                <p className='text-[16px] font-semibold'>Enrolled Classes</p>
+                            </NavLink>
+                            <NavLink to="/dashboard/history" className={({ isActive }) => `${isActive ? "text-sky-400" : ""} flex items-center p-3 mb-3`}>
                                 <FaFileContract className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-medium'>Payment History</p>
-                            </Link>
+                                <p className='text-[16px] font-semibold'>Payment History</p>
+                            </NavLink>
                             <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>
                     }

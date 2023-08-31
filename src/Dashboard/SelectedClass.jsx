@@ -6,14 +6,14 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
-    const { user } = useAuth()  
+    const { user } = useAuth()
     const { data: selectedClass = [], refetch } = useQuery({
         queryKey: ['selected', user?.email],
         queryFn: async () => {
             const res = await fetch(`https://music-instrument-learning-server-seven.vercel.app/selected?email=${user?.email}`)
             return res.json()
         }
-        
+
     })
 
     const handleDeleteClass = (id) => {
@@ -29,19 +29,18 @@ const SelectedClass = () => {
                 })
             })
     }
-   
-    const totalPrice = selectedClass.reduce((sum, price)=> price.price + sum,0)  
+
+    const totalPrice = selectedClass.reduce((sum, price) => price.price + sum, 0)
     return (
         <div className='px-6'>
             <Helmet>
                 <title>Dashboard | Selected Class</title>
             </Helmet>
-             <h1 className='animate__animated animate__backInRight text-center font-medium text-2xl md:text-3xl text-purple-600 my-8 border-b-2 pb-3'>My Selected Classes</h1>
-            <div className='w-full'>  
-            <h1 className='my-2 text-2xl font-medium'>Total Price: ${totalPrice}</h1>              
-                <div className=' border-b-2'>
+            <h1 className='selected-class animate__animated animate__backInRight'>My Selected Classes</h1>
+            <div className='w-full'>
+                <div>
                     {
-                        selectedClass.length < 1 ? <h1 className='text-red-500 text-2xl'>No class selected yet</h1> : <div className='w-full px-5'>
+                        selectedClass.length < 1 ? <h1 className='text-red-500 text-center mt-24 text-4xl'>No class selected yet</h1> : <div className='w-full px-5'>
                             <div className="overflow-x-auto">
                                 <table className="table">
                                     <thead>
@@ -61,7 +60,7 @@ const SelectedClass = () => {
                                                 <td>{select.email}</td>
                                                 <td>{select.sellerName}</td>
                                                 <td>${select.price}</td>
-                                                <td><Link to={`/dashboard/payment/${select._id}`} state={{select: select}}> <button  className={`danger-button text-white `}>Pay</button></Link></td>
+                                                <td><Link to={`/dashboard/payment/${select._id}`} state={{ select: select }}> <button className={`danger-button text-white `}>Pay</button></Link></td>
                                                 <td>
                                                     <div onClick={() => handleDeleteClass(select._id)} className="common-button text-center">Delete</div>
                                                 </td>
@@ -75,7 +74,7 @@ const SelectedClass = () => {
                     }
                 </div>
                 {/* ${selectedClass.length < 1 ? 'hidden': 'block'}` */}
-               {/* <Link to="/dashboard/payment"> <button  className={`btn btn-warning mt-3 px-12 text-white `}>Pay</button></Link> */}
+                {/* <Link to="/dashboard/payment"> <button  className={`btn btn-warning mt-3 px-12 text-white `}>Pay</button></Link> */}
             </div>
         </div>
     );

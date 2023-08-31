@@ -13,8 +13,8 @@ const Instructors = () => {
     })
 
     return (
-        <div>
-            <h1 className='animate__animated animate__backInRight text-center font-medium w-1/2 mx-auto text-2xl md:text-3xl text-purple-600 my-8 border-b-2 pb-3'>Our Instructors</h1>
+        <div className='pt-16'>
+            <h1 className='animate__animated animate__backInRight text-center font-medium w-1/2 mx-auto text-2xl md:text-3xl text-purple-600 my-8 border-b-4 border-green-400 pb-3'>Our Instructors</h1>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 my-3 md:mx-12'>
                 {
                     allInstructors.map(ins => <div

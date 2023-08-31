@@ -24,18 +24,18 @@ const Header = () => {
             .catch(() => { })
     }
     return (
-        <div className='fixed z-10 bg-opacity-40 bg-black w-full'>
+        <div className='fixed z-10 top-0 bg-opacity-40 bg-black w-full'>
             <div>
                 <div className="navbar md:px-12">
                     <div className="flex-1">
                         <img className='rounded-full h-12 md:h-16 mr-2' src={logo} alt="" />
-                        <Link to="/"><h1 className='font-semibold text-3xl'>Tune<span className='text-sky-400'>Tutor</span></h1></Link>
+                        <Link to="/"><h1 className='font-semibold text-white text-3xl'>Tune<span className='text-sky-400'>Tutor</span></h1></Link>
                     </div>
                     <div className="md:flex hidden">
                         <ul className="menu menu-horizontal px-1 items-center font-semibold gap-5 text-xl text-white">
-                            <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/">Home</NavLink>
-                            <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/instructors">Instructors</NavLink>
-                            <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/classes">Classes</NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? "text-sky-400" : "")} to="/">Home</NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? "text-sky-400" : "")} to="/instructors">Instructors</NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? "text-sky-400" : "")} to="/classes">Classes</NavLink>
                             {
                                 user?.email && <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to={addmin ? '/dashboard/adminHome' : instrucor ? '/dashboard/instructorHome' : '/dashboard/studentHome'}>Dashboard</NavLink>
                             }

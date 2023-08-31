@@ -4,7 +4,7 @@ import { useState } from "react";
 import useAuth from '../Hooks/useAuth'
 import './CheckOutForm.css'
 
-const PayOut = ({ selectedClass }) => {
+const PayOut = ({ selectedClass }) => {    
     const { class: className, email, _id, price, sellerEmail, sellerName } = selectedClass
     const { user } = useAuth()
     const stripe = useStripe()
@@ -78,7 +78,8 @@ const PayOut = ({ selectedClass }) => {
                 paymentStatus: 'Successfull',
                 sellerEmail,
                 sellerName: sellerName,
-                classId: _id
+                classId: _id,
+                className
             }
             fetch('https://music-instrument-learning-server-seven.vercel.app/payments', {
                 method: 'POST',
