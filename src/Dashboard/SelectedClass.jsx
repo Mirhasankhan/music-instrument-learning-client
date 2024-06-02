@@ -62,7 +62,7 @@ const SelectedClass = () => {
                                                 <td>${select.price}</td>
                                                 <td><Link to={`/dashboard/payment/${select._id}`} state={{ select: select }}> <button className={`danger-button text-white `}>Pay</button></Link></td>
                                                 <td>
-                                                    <div onClick={() => handleDeleteClass(select._id)} className="common-button text-center">Delete</div>
+                                                    <div onClick={() => handleDeleteClass(select._id)} className="common-button cursor-pointer text-center">Delete</div>
                                                 </td>
                                             </tr>)
                                         }

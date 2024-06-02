@@ -83,9 +83,9 @@ const Dashboard = () => {
                                 <FaFileContract className='text-[16px] mr-2' />
                                 <p className='text-[16px] font-semibold'>Enrolled Classes</p>
                             </NavLink>
-                            <NavLink to="/dashboard/history" className={({ isActive }) => `${isActive ? "text-sky-400" : ""} flex items-center p-3 mb-3`}>
+                            <NavLink to="/classes" className={({ isActive }) => `${isActive ? "text-sky-400" : ""} flex items-center p-3 mb-3`}>
                                 <FaFileContract className='text-[16px] mr-2' />
-                                <p className='text-[16px] font-semibold'>Payment History</p>
+                                <p className='text-[16px] font-semibold'>Classes</p>
                             </NavLink>
                             <Link to="/"> <button className='formal-button ml-3'>Back Home</button></Link>
                         </ul>
